@@ -1,0 +1,21 @@
+
+ 
+记录时间: 2016-08-25 11:38:47,774 
+线程ID: [7] 
+日志级别: ERROR 
+信息类: Joney.BasePro.Models.MyFilter+ExceptionAttribut property: [(null)] - 
+信息描述: 192.168.1.240_Break The Line...——http://localhost:5324/Home/GetFileDirList —— 无法将类型为“RoleEnum”的对象强制转换为类型“System.String”。 
+
+ 
+记录时间: 2016-08-25 11:51:40,821 
+线程ID: [11] 
+日志级别: ERROR 
+信息类: Joney.BasePro.Models.MyFilter+ExceptionAttribut property: [(null)] - 
+信息描述: 192.168.1.240_Break The Line...——http://localhost:5324/Home/GetFileDirList —— You have no right to view this page! 
+
+ 
+记录时间: 2016-08-25 11:55:44,647 
+线程ID: [11] 
+日志级别: ERROR 
+信息类: Joney.BasePro.Models.MyFilter+ExceptionAttribut property: [(null)] - 
+信息描述: 192.168.1.240_Break The Line...——http://localhost:5324/Home/GetFileDirList —— You have no right to view this page! 

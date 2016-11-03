@@ -1,0 +1,1152 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>流程设计器</title>
+    <meta name="keyword" content="流程设计器,Web Flowdesign,Flowdesigner,FlowChart">
+    <meta name="description" content="流程设计器">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Joney">
+    <link href="~/Content/FlowDesign/css/bootstrap.css?2016" rel="stylesheet" type="text/css" />
+    <link href="~/Content/FlowDesign/css/site.css?2016" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/FlowDesign/css/flowdesign.css?2016" />
+    <!--select 2-->
+    <link rel="stylesheet" type="text/css" href="~/Content/FlowDesign/css/jquery.multiselect2side.css" />
+
+</head>
+<body onload="">
+    <!-- fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="pull-right">
+                    <button class="btn btn-info" type="button" id="leipi_save">保存设计</button>
+                    <button class="btn btn-danger" type="button" id="leipi_clear">清空连接</button>
+                </div>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="javascript:void(0);">正在设计流程图：AAA</a></li>
+                    </ul>
+                </div>
+
+            </div><!-- container -->
+        </div>
+    </div>
+    <!-- end fixed navbar -->
+    <!-- Modal -->
+    <div id="alertModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>消息提示</h3>
+        </div>
+        <div class="modal-body">
+            <p>提示内容</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">我知道了</button>
+        </div>
+    </div>
+    <!-- attributeModal -->
+    <div id="attributeModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:800px;margin-left:-350px">
+        <div class="modal-body" style="max-height:500px;">
+            <!-- body -->
+            <ul class="nav nav-tabs" id="attributeTab">
+                <li class=""><a href="#attrBasic">常规</a></li>
+                <li class=""><a href="#attrForm">表单</a></li>
+                <li class=""><a href="#attrPower">权限</a></li>
+                <li class="active"><a href="#attrOperate">操作</a></li>
+                <li id="tab_attrJudge" style="display: none;"><a href="#attrJudge">转出条件</a></li>
+                <li class=""><a href="#attrStyle">样式</a></li>
+            </ul>
+            <form class="form-horizontal" target="hiddeniframe" method="post" id="flow_attribute" name="flow_attribute" action="/Flowdesign/save_attribute.html">
+                <input type="hidden" name="flow_id" value="459">
+                <input type="hidden" name="process_id" value="2598">
+                <div class="tab-content">
+                    <div class="tab-pane" id="attrBasic">
+
+                        <div class="control-group">
+                            <label class="control-label" for="process_name">步骤名称</label>
+                            <div class="controls">
+                                <input type="text" id="process_name" placeholder="步骤名称" name="process_name" value="新建步骤">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">步骤类型</label>
+                            <div class="controls">
+                                <label class="radio inline">
+                                    <input type="radio" name="process_type" value="is_step" checked="checked">正常步骤
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="process_type" value="is_child">转入子流程
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="process_type" value="is_one">设为第一步
+                                </label>
+
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div id="current_flow">
+                            <div class="offset1">
+                                <!--未按顺序的bug 2012-12-12-->
+                                <select multiple="multiple" size="7" name="process_to[]" id="process_multiple" style="display: none;">
+                                    <option value="2596">start</option>
+                                    <option value="2605">新建步骤</option>
+                                    <option value="2606">新建步骤</option>
+                                    <option value="2607">新建步骤</option>
+                                    <option value="2609">新建步骤</option>
+                                    <option value="2610">新建步骤</option>
+                                    <option value="2611">新建步骤</option>
+                                </select><div class="ms2side__div"><div class="ms2side__updown"><p class="SelSort ms2side__hide" title="Sort">排序</p><p class="MoveTop ms2side__hide" title="Move on top selected option">最顶</p><p class="MoveUp ms2side__hide" title="Move up selected option">上移</p><p class="MoveDown ms2side__hide" title="Move down selected option">下移</p><p class="MoveBottom ms2side__hide" title="Move on bottom selected option">最底</p></div><div class="ms2side__select"><div class="ms2side__header"><i class="icon-ok"></i> 下一步步骤</div><select title="<i class=&quot;icon-ok&quot;></i> 下一步步骤" name="process_toms2side__sx" id="process_toms2side__sx" size="7" multiple="multiple"></select></div><div class="ms2side__options"><p class="AddOne" title="选择"><i class="icon-chevron-left"></i></p><p class="AddAll" title="全选"><i class="icon-backward"></i></p><p class="RemoveOne ms2side__hide" title="移除"><i class="icon-chevron-right"></i></p><p class="RemoveAll ms2side__hide" title="清空"><i class="icon-forward"></i></p></div><div class="ms2side__select"><div class="ms2side__header"><i class="icon-list"></i> 备选步骤</div><select title="<i class=&quot;icon-list&quot;></i> 备选步骤" name="process_toms2side__dx" id="process_toms2side__dx" size="7" multiple="multiple"><option value="2596" selected="selected">start</option><option value="2605">新建步骤</option><option value="2606">新建步骤</option><option value="2607">新建步骤</option><option value="2609">新建步骤</option><option value="2610">新建步骤</option><option value="2611">新建步骤</option></select></div></div>
+                            </div>
+                        </div><!-- current_flow end -->
+
+                        <div id="child_flow" class="hide">
+                            <div class="control-group">
+                                <label class="control-label">子流程</label>
+                                <div class="controls">
+                                    <select name="child_id">
+                                        <option value="0">--请选择--</option>
+                                        <option value="2">的范德萨</option>
+                                        <option value="4">个人借款申请单</option>
+                                        <option value="8">报销申请</option>
+                                        <option value="10">贷款流程</option>
+                                        <option value="11">请假</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">子流程结束后动作</label>
+                                <div class="controls">
+                                    <label class="radio inline">
+                                        <input type="radio" name="child_after" value="1" checked="checked">
+                                        同时结束父流程
+                                    </label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="child_after" value="2">
+                                        返回父流程步骤
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="control-group hide" id="child_back_id">
+                                <label class="control-label">返回步骤</label>
+                                <div class="controls">
+                                    <select name="child_back_process">
+                                        <option value="0">--默认--</option>
+                                        <option value="2596">start</option>
+                                        <option value="2598">新建步骤</option>
+                                        <option value="2605">新建步骤</option>
+                                        <option value="2606">新建步骤</option>
+                                        <option value="2607">新建步骤</option>
+                                        <option value="2609">新建步骤</option>
+                                        <option value="2610">新建步骤</option>
+                                        <option value="2611">新建步骤</option>
+                                        <!--option value="1">步骤1</option>
+                                        <option value="2">步骤2</option>
+                                        <option value="3">步骤3</option-->
+                                    </select>
+                                    <span class="help-inline">默认为当前步骤下一步</span>
+                                </div>
+                            </div>
+
+                        </div><!-- child_flow end -->
+
+
+
+                    </div><!-- attrBasic end -->
+
+                    <div class="tab-pane" id="attrForm">
+
+
+
+                        <table class="table table-condensed table-bordered table-hover">
+                            <tbody>
+                                <tr>
+                                    <th style="text-align:center">字段名称</th>
+                                    <th style="text-align:center">控件类型</th>
+                                    <!--
+                                      预留功能：
+                                      1.是否必填
+                                      2.锁定内容不能修改
+                                    -->
+                                    <th style="width:100px;"><label title="本步骤可写字段" class="checkbox"><input type="checkbox" id="write">可写字段</label></th>
+                                    <th style="width:100px;"><label title="保密字段对于本步骤主办人、经办人均为不可见" class="checkbox"><input type="checkbox" id="secret">保密字段</label></th>
+                                </tr>
+                            </tbody>
+                            <tbody>
+
+                                <!-- 这里是表单设计器的字段 start -->
+                                <!--tr>
+                                  <th>姓名</th>
+                                  <td>文本框</td>
+                                  <td><label style="display: block;" ><input type="checkbox" name="write[]" checked="true" value="data_2" key="1" id="write_1"></label></td>
+                                  <td><label style="display: block;"><input type="checkbox" name="secret[]" disabled="true" value="data_2" key="1" id="secret_1"></label></td>
+                                </tr-->
+                                <!-- 这里是表单设计器的字段 end -->
+
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div><!-- attrForm end -->
+
+
+                    <div class="tab-pane" id="attrPower">
+
+                        <div class="control-group">
+                            <label class="control-label">自动选人</label>
+                            <div class="controls">
+                                <select name="auto_person" id="auto_person_id">
+                                    <option value="0">不自动选人</option>
+                                    <option value="1">发起人</option>
+                                    <option value="2">发起人的部门主管</option>
+                                    <option value="3">处理人的部门主管</option>
+                                    <option value="5">指定角色</option>
+                                    <option value="4">指定人员</option>
+                                </select>
+                                <span class="help-inline">预先设置自动选人，更方便转交工作</span>
+                            </div>
+                            <div class="controls hide" id="auto_unlock_id">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="auto_unlock" value="1" checked="checked">允许更改
+                                </label>
+                            </div>
+
+                            <div id="auto_person_4" class="hide">
+                                <div class="control-group">
+                                    <label class="control-label">指定主办人</label>
+                                    <div class="controls">
+                                        <input type="hidden" name="auto_sponsor_ids" id="auto_sponsor_ids" value="">
+                                        <input class="input-xlarge" readonly="readonly" type="text" placeholder="指定主办人" name="auto_sponsor_text" id="auto_user_text" value=""> <a href="javascript:void(0);" class="btn" onclick="superDialog('/demo/super_dialog/op/user.html','auto_user_text','auto_sponsor_ids');">选择</a>
+
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">指定经办人</label>
+                                    <div class="controls">
+                                        <input type="hidden" name="auto_respon_ids" id="auto_respon_ids" value="">
+                                        <input class="input-xlarge" readonly="readonly" type="text" placeholder="指定经办人" name="auto_respon_text" id="auto_userop_text" value=""> <a href="javascript:void(0);" class="btn" onclick="superDialog('/demo/super_dialog/op/user.html','auto_userop_text','auto_respon_ids');">选择</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="auto_person_5" class="hide">
+                                <div class="control-group">
+                                    <label class="control-label">指定角色</label>
+                                    <div class="controls">
+                                        <input type="hidden" name="auto_role_ids" id="auto_role_value" value="">
+                                        <input class="input-xlarge" readonly="readonly" type="text" placeholder="指定角色" name="auto_role_text" id="auto_role_text" value=""> <a href="javascript:void(0);" class="btn" onclick="superDialog('/demo/super_dialog/op/role.html','auto_role_text','auto_role_value');">选择</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <h4>授权范围</h4>
+                        <div class="control-group">
+                            <label class="control-label">授权人员</label>
+                            <div class="controls">
+                                <input type="hidden" name="range_user_ids" id="range_user_ids" value="">
+                                <input class="input-xlarge" readonly="readonly" type="text" placeholder="选择人员" name="range_user_text" id="range_user_text" value=""> <a href="javascript:void(0);" class="btn" onclick="superDialog('/demo/super_dialog/op/user.html','range_user_text','range_user_ids');">选择</a>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">授权部门</label>
+                            <div class="controls">
+                                <input type="hidden" name="range_dept_ids" id="range_dept_ids" value="">
+                                <input class="input-xlarge" readonly="readonly" type="text" placeholder="选择部门" name="range_dept_text" id="range_dept_text" value=""> <a href="javascript:void(0);" class="btn" onclick="superDialog('/demo/super_dialog/op/dept.html','range_dept_text','range_dept_ids');">选择</a>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">授权角色</label>
+                            <div class="controls">
+                                <input type="hidden" name="range_role_ids" id="range_role_ids" value="">
+                                <input class="input-xlarge" readonly="readonly" type="text" placeholder="选择角色" name="range_role_text" id="range_role_text" value=""> <a href="javascript:void(0);" class="btn" onclick="superDialog('/demo/super_dialog/op/role.html','range_role_text','range_role_ids');">选择</a>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <span class="help-block">当需要手动选人时，则授权范围生效</span>
+                            </div>
+                        </div>
+
+
+
+                    </div><!-- attrPower end -->
+
+
+                    <div class="tab-pane active" id="attrOperate">
+
+                        <div class="control-group">
+                            <label class="control-label">交接方式</label>
+                            <div class="controls">
+                                <select name="receive_type">
+                                    <option value="0" selected="selected">明确指定主办人</option>
+                                    <option value="1">先接收为主办人</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="is_user_end" value="1">允许主办人办结流程(最后步骤默认允许)
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="is_userop_pass" value="1">经办人可以转交下一步
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="control-group">
+                            <label class="control-label">会签方式</label>
+                            <div class="controls">
+                                <select name="is_sing">
+                                    <option value="1" selected="selected">允许会签</option>
+                                    <option value="2">禁止会签</option>
+                                    <option value="3">强制会签</option>
+                                </select>
+                                <span class="help-inline">如果设置强制会签，则本步骤全部人都会签后才能转交或办结</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">可见性</label>
+                            <div class="controls">
+                                <select name="sign_look">
+                                    <option value="1" selected="selected">总是可见</option>
+                                    <option value="2">本步骤之间经办人不可见</option>
+                                    <option value="3">其它步骤不可见</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <hr>
+
+                        <div class="control-group">
+                            <label class="control-label">回退方式</label>
+                            <div class="controls">
+                                <select name="is_back">
+                                    <option value="1" selected="selected">不允许</option>
+                                    <option value="2">允许回退上一步</option>
+                                    <option value="3">允许回退之前步骤</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div><!-- attrOperate end -->
+
+                    <div class="tab-pane  " id="attrJudge">
+
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width:100px;">转出步骤</th>
+                                    <th>转出条件设置</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!--模板-->
+                                <tr id="tpl" class="hide">
+                                    <td style="width: 100px;">@@text</td>
+                                    <td>
+                                        <table class="table table-condensed">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <select id="field_#" class="input-medium">
+                                                            <option value="">选择字段</option>
+                                                            <!-- 表单字段 start -->
+                                                            <!-- 表单字段 end -->
+                                                        </select>
+                                                        <select id="condition_#" class="input-small">
+                                                            <option value="=">等于</option>
+                                                            <option value="<>">不等于</option>
+                                                            <option value=">">大于</option>
+                                                            <option value="<">小于</option>
+                                                            <option value=">=">大于等于</option>
+                                                            <option value="<=">小于等于</option>
+                                                            <option value="include">包含</option>
+                                                            <option value="exclude">不包含</option>
+                                                        </select>
+                                                        <input type="text" id="item_value_#" class="input-small">
+                                                        <select id="relation_#" class="input-small">
+                                                            <option value="AND">与</option>
+                                                            <option value="OR">或者</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-small" onclick="fnAddLeftParenthesis('#')">（</button>
+                                                            <button type="button" class="btn btn-small" onclick="fnAddRightParenthesis('#')">）</button>
+                                                            <button type="button" onclick="fnAddConditions('#')" class="btn btn-small">新增</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <select id="conList_--" multiple="" style="width: 100%;height: 80px;"></select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" onclick="fnDelCon('#')" class="btn btn-small">删行</button>
+                                                            <button type="button" onclick="fnClearCon('#')" class="btn btn-small">清空</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <input id="process_in_desc_#" type="text" name="process_in_desc_#" style="width:98%;">
+                                                        <input name="process_in_set_#" id="process_in_set_#" type="hidden">
+                                                    </td>
+                                                    <td>
+                                                        <span class="xc1">不符合条件时的提示</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                            <tbody id="ctbody"></tbody>
+                        </table>
+                        <input type="hidden" name="process_condition" id="process_condition">
+                    </div><!-- attrJudge end -->
+                    <div class="tab-pane" id="attrStyle">
+
+                        <div class="control-group">
+                            <label class="control-label" for="process_name">尺寸</label>
+                            <div class="controls">
+                                <input type="text" class="input-small" name="style_width" id="style_width" placeholder="宽度PX" value="120"> X <input type="text" class="input-small" name="style_height" id="style_height" placeholder="高度PX" value="50">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="process_name">字体颜色</label>
+                            <div class="controls">
+                                <input type="text" class="input-small" name="style_color" id="style_color" placeholder="#000000" value="#d54e21">
+                                <div class="colors" org-bind="style_color">
+                                    <ul>
+                                        <li class="Black active" org-data="#000" title="Black">1</li>
+                                        <li class="red" org-data="#d54e21" title="Red">2</li>
+                                        <li class="green" org-data="#78a300" title="Green">3</li>
+                                        <li class="blue" org-data="#0e76a8" title="Blue">4</li>
+                                        <li class="aero" org-data="#9cc2cb" title="Aero">5</li>
+                                        <li class="grey" org-data="#73716e" title="Grey">6</li>
+                                        <li class="orange" org-data="#f70" title="Orange">7</li>
+                                        <li class="yellow" org-data="#fc0" title="Yellow">8</li>
+                                        <li class="pink" org-data="#ff66b5" title="Pink">9</li>
+                                        <li class="purple" org-data="#6a5a8c" title="Purple">10</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="control-group">
+                            <label class="control-label" for="process_name"><span class="process-flag badge badge-inverse"><i class="icon-star-empty icon-white" id="style_icon_preview"></i></span> 图标</label>
+                            <div class="controls">
+                                <input type="text" class="input-medium" name="style_icon" id="style_icon" placeholder="icon" value="icon-heart">
+                                <div class="colors" org-bind="style_icon">
+                                    <ul>
+                                        <li class="Black active" org-data="icon-star-empty" title="Black"><i class="icon-star-empty icon-white"></i></li>
+                                        <li class="red" org-data="icon-ok" title="Red"><i class="icon-ok icon-white"></i></li>
+                                        <li class="green" org-data="icon-remove" title="Green"><i class="icon-remove icon-white"></i></li>
+                                        <li class="blue" org-data="icon-refresh" title="Blue"><i class="icon-refresh icon-white"></i></li>
+                                        <li class="aero" org-data="icon-plane" title="Aero"><i class="icon-plane icon-white"></i></li>
+                                        <li class="grey" org-data="icon-play" title="Grey"><i class="icon-play icon-white"></i></li>
+                                        <li class="orange" org-data="icon-heart" title="Orange"><i class="icon-heart icon-white"></i></li>
+                                        <li class="yellow" org-data="icon-random" title="Yellow"><i class="icon-random icon-white"></i></li>
+                                        <li class="pink" org-data="icon-home" title="Pink"><i class="icon-home icon-white"></i></li>
+                                        <li class="purple" org-data="icon-lock" title="Purple"><i class="icon-lock icon-white"></i></li>
+                                    </ul>
+                                    <a href="http://v2.bootcss.com/base-css.html#icons" target="_blank">更多</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="control-group">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                                <span class="help-inline">想要更多设置，可以自行添加，或反馈给我们 [ 雷劈网 ]。</span>
+                            </div>
+                        </div>
+
+                        <!-- 不太完善，隐藏
+                         <div class="control-group">
+                          <label class="control-label">CSS3 图形</label>
+                          <div class="controls">
+                            <select name="style_graph" id="style_graph">
+                              <option value="">矩形</option>
+                              <option value="circle">圆形</option>
+                              <option value="oval">椭圆</option>
+                              <option value="hexagon">菱形</option>
+                            </select>
+                            <span class="help-inline">CSS3仅支持部分浏览器</span>
+                          </div>
+                        </div> -->
+
+
+                    </div><!-- attrStyle end -->
+                </div>
+
+
+                <div>
+                    <hr>
+                    <span class="pull-right">
+                        <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">取消</a>
+                        <button class="btn btn-primary" type="submit" id="attributeOK">确定保存</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer" style="padding:5px;">
+            <a href="#" class="btn btn-danger" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-white"></i></a>
+        </div>
+    </div>
+    <!--contextmenu div-->
+    <div id="processMenu" style="display:none;">
+        <ul>
+            <!--li id="pm_begin"><i class="icon-play"></i>&nbsp;<span class="_label">设为第一步</span></li-->
+            <!--li id="pm_addson"><i class="icon-plus"></i>&nbsp;<span class="_label">添加子步骤</span></li-->
+            <!--li id="pm_copy"><i class="icon-check"></i>&nbsp;<span class="_label">复制</span></li-->
+            <li id="pmAttribute"><i class="icon-cog"></i>&nbsp;<span class="_label">属性</span></li>
+            <li id="pmForm"><i class="icon-th"></i>&nbsp;<span class="_label">表单字段</span></li>
+            <li id="pmJudge"><i class="icon-share-alt"></i>&nbsp;<span class="_label">转出条件</span></li>
+            <li id="pmSetting"><i class="icon-wrench"></i>&nbsp;<span class="_label">样式</span></li>
+            <li id="pmCopy"><i class="icon-edit"></i>&nbsp;<span class="_label">复制</span></li>
+            <li id="pmDelete"><i class="icon-trash"></i>&nbsp;<span class="_label">删除</span></li>
+        </ul>
+    </div>
+    <div id="canvasMenu" style="display:none;">
+        <ul>
+            <li id="cmSave"><i class="icon-ok"></i>&nbsp;<span class="_label">保存设计</span></li>
+            <li id="cmAdd"><i class="icon-plus"></i>&nbsp;<span class="_label">添加步骤</span></li>
+            
+            <li id="cmPaste"><i class="icon-share"></i>&nbsp;<span class="_label">粘贴</span></li>
+            <li id="cmRefresh"><i class="icon-refresh"></i>&nbsp;<span class="_label">刷新 F5</span></li>
+            <li id="cmHelp"><i class="icon-search"></i>&nbsp;<span class="_label">帮助</span></li>
+        </ul>
+    </div>
+    <!--end div-->
+    <div class="container mini-layout" id="flowdesign_canvas">
+        <!--div class="process-step btn" style="left: 189px; top: 340px;"><span class="process-num badge badge-inverse"><i class="icon-star icon-white"></i>3</span> 步骤3</div-->
+    </div> <!-- /container -->
+    <div id="dragBox_tool" class="mxWindow" style="top:100px;left:50PX;">
+        <me class="mxWindowTitle" style="cursor:move;vertical-align:middle;text-align:center;"><span>工具栏</span></me>
+        <div class="mxWindowContent">
+            <ul>
+                <li><a id="abtn_saveDesign"><i class="i-save"></i><em>保存</em></a></li>
+                <li><a id="abtn_refreshDesign"><i class="i-refresh"></i><em>刷新</em></a></li>
+            </ul>
+            <hr class="hr-line" />
+            <ul>
+                <li class="dw_Start"><a id="add_step_1"><i class="i-Start"></i><em>开始</em></a></li>
+                <li class="dw_Task"><a id="add_step_2"><i class="i-Task"></i><em>任务</em></a></li>
+                <li class="dw_State"><a id="add_step_3"><i class="i-State"></i><em>状态</em></a></li>
+                <li class="dw_Branch"><a id="add_step_4"><i class="i-Branch"></i><em>分支</em></a></li>
+                <li class="dw_Merge"><a id="add_step_5"><i class="i-Merge"></i><em>合并</em></a></li>
+                <li class="dw_End"><a id="add_step_6"><i class="i-End"></i><em>结束</em></a></li>
+                <li class="dw_Cancel"><a id="add_step_7"><i class="i-Cancel"></i><em>取消</em></a></li>
+                <li class="dw_Error"><a id="add_step_8"><i class="i-Error"></i><em>错误</em></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="dragBox_Attribute" class="mxWindow" style="top:100px;right:100PX;">
+        <me class="mxWindowTitle" style="cursor:move;vertical-align:middle;text-align:left;"><span>属性：</span></me>
+        <div class="mxWindowContent">
+            <ul>
+                <li><span>标题</span><input type="text" id="txtTitle" placeholder="显示标题" /></li>
+                <li><span>步骤</span><input type="text" id="txtTitle2" placeholder="步骤" /></li>
+                <li><span>表单</span><input type="text" id="txtTitle3" placeholder="表单" /></li>
+                <li><span>描述</span><input type="text" id="txtTitle4" placeholder="描述" /></li>
+            </ul>
+            <p>
+                <a id="btnUpdate" class="btn">更 新</a>
+                <a id="btnClose" class="btn">取 消</a>
+            </p>
+        </div>
+    </div>
+    <div id="selActionBox" style="display:none;">
+        <div>
+            <input type="text" id="txt_labelTitle" value="" />
+            <select id="selElem">
+                <option value="1">同意</option>
+                <option value="2">拒绝</option>
+            </select>
+        </div>
+    </div>
+    
+</body>
+</html>
+<!--<script type="text/javascript" src="~/Scripts/jquery-1.8.2.js?2016"></script>-->
+<script type="text/javascript" src="~/Content/FlowDesign/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-1.9.2-min.js"></script>
+<script type="text/javascript" src="~/Content/FlowDesign/jquery.jsPlumb-1.3.16-all-min-dev.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.contextmenu.r2.js"></script>
+<!--select 2-->
+<script type="text/javascript" src="~/Content/FlowDesign/jquery.multiselect2side.js"></script>
+<!--flowdesign-->
+<script type="text/javascript" src="~/Content/FlowDesign/flowdesign.v3.js"></script>
+
+<script type="text/javascript" src="~/Scripts/DragResize.js"></script>
+
+
+@Html.Partial("../Shared/_Layer")
+<script type="text/javascript">
+        //window.setTimeout(refreshPage, 1000);
+        //var freshCount =1;
+        //var myIv=window.setInterval(refreshPage,1000);
+        //function refreshPage() {
+
+        //    console.log(freshCount);
+        //    if (freshCount % 2 == 0) {
+        //        clearInterval(myIv);
+        //    } else {
+        //        window.location.reload(false);
+        //    }
+        //    freshCount++;
+    //}
+    
+        var the_flow_id = '168';
+        /*页面回调执行 callbackSuperDialog
+            if(window.ActiveXObject){ //IE
+                window.returnValue = globalValue
+            }else{ //非IE
+                if(window.opener) {
+                    window.opener.callbackSuperDialog(globalValue) ;
+                }
+            }
+            window.close();
+        */
+        function callbackSuperDialog(selectValue) {
+            var aResult = selectValue.split('@@leipi@@');
+            $('#' + window._viewField).val(aResult[0]);
+            $('#' + window._hidField).val(aResult[1]);
+            //document.getElementById(window._hidField).value = aResult[1];
+
+        }
+        /**
+         * 弹出窗选择用户部门角色
+         * showModalDialog 方式选择用户
+         * URL 选择器地址
+         * viewField 用来显示数据的ID
+         * hidField 隐藏域数据ID
+         * isOnly 是否只能选一条数据
+         * dialogWidth * dialogHeight 弹出的窗口大小
+         */
+        function superDialog(URL, viewField, hidField, isOnly, dialogWidth, dialogHeight) {
+            dialogWidth || (dialogWidth = 620)
+            , dialogHeight || (dialogHeight = 520)
+            , loc_x = 500
+            , loc_y = 40
+            , window._viewField = viewField
+            , window._hidField = hidField;
+            // loc_x = document.body.scrollLeft+event.clientX-event.offsetX;
+            //loc_y = document.body.scrollTop+event.clientY-event.offsetY;
+            if (window.ActiveXObject) { //IE
+                var selectValue = window.showModalDialog(URL, self, "edge:raised;scroll:1;status:0;help:0;resizable:1;dialogWidth:" + dialogWidth + "px;dialogHeight:" + dialogHeight + "px;dialogTop:" + loc_y + "px;dialogLeft:" + loc_x + "px");
+                if (selectValue) {
+                    callbackSuperDialog(selectValue);
+                }
+            } else {  //非IE
+                var selectValue = window.open(URL, 'newwindow', 'height=' + dialogHeight + ',width=' + dialogWidth + ',top=' + loc_y + ',left=' + loc_x + ',toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+
+            }
+        }
+
+        $(function () {
+            var alertModal = $('#alertModal'), attributeModal = $("#attributeModal");
+            //消息提示
+            mAlert = function (messages, s) {
+                if (!messages) messages = "";
+                if (!s) s = 2000;
+                alertModal.find(".modal-body").html(messages);
+                alertModal.modal('toggle');
+                setTimeout(function () { alertModal.modal("hide") }, s);
+            }
+
+            //属性设置
+            attributeModal.on("hidden", function () {
+                $(this).removeData("modal");//移除数据，防止缓存
+            });
+            ajaxModal = function (url, fn) {
+                url += url.indexOf('?') ? '&' : '?';
+                url += '_t=' + new Date().getTime();
+                attributeModal.find(".modal-body").html('<div style="text-align:center"><img src="/Content/FlowDesign/images/loading.gif"/></div>');
+                attributeModal.modal({
+                    remote: url
+                });
+                //加载完成执行
+                if (fn) {
+                    attributeModal.on('shown', fn);
+                }
+            }
+            //刷新页面
+            function page_reload() {
+                location.reload();
+            }
+            /*步骤数据*/
+            var processData = { "total": 6, "list": [{ "id": "2759", "flow_id": "486", "process_name": "\u8bf7\u5047\u7533\u8bf7", "process_to": "2760", "icon": "icon-home", "node_class": "nod-Start", "style": "left:331px;top:98px;" }, { "id": "2760", "flow_id": "486", "process_name": "\u90e8\u95e8\u7ecf\u7406", "process_to": "2761,2764", "icon": "icon-play", "node_class": "nod-Start", "style": "left:455px;top:240px;" }, { "id": "2761", "flow_id": "486", "process_name": "\u603b\u7ecf\u7406", "process_to": "2762,2764", "icon": "icon-ok", "node_class": "nod-Start", "style": "left:544px;top:476px;" }, { "id": "2762", "flow_id": "486", "process_name": "\u884c\u653f\u90e8", "process_to": "2763", "icon": "icon-random", "node_class": "nod-Start nod-Tasking", "style": "left:937px;top:476px;" }, { "id": "2763", "flow_id": "486", "process_name": "\u7533\u8bf7\u5b8c\u7ed3", "process_to": "", "icon": "icon-star-empty", "node_class": "nod-Start", "style": "left:1223px;top:476px;" }, { "id": "2764", "flow_id": "486", "process_name": "\u4e0d\u540c\u610f", "process_to": "2763", "icon": "icon-remove", "node_class": "nod-Start", "style": "left:931px;top:355px;" }] };
+            
+            
+            /*创建流程设计器*/
+            var _canvas = $("#flowdesign_canvas").Flowdesign({
+                "processData": processData
+                /*,mtAfterDrop:function(params)
+                {
+                    //alert("连接："+params.sourceId +" -> "+ params.targetId);
+                }*/
+                /*画面右键*/
+                , canvasMenus: {
+                    "cmAdd": function (t) {
+                        var mLeft = $("#jqContextMenu").css("left"), mTop = $("#jqContextMenu").css("top");
+                        //data.info=>
+                        var nodeData = {
+                            flow_id: parseInt(Math.random(1000) * 1000),
+                            icon: 'icon-home',
+                            id: parseInt(Math.random(1000) * 1000),
+                            process_name: '新建步骤',
+                            process_to: '',
+                            node_class: 'nod-Start',
+                            style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                        };
+                        _canvas.addProcess(nodeData);
+                        processData = _canvas.getProcessInfo();
+                    },
+                    "cmSave": function (t) {
+                        var processInfo = _canvas.getProcessInfo();//连接信息
+                        console.log(processInfo);
+                        layer.msg(processInfo);
+                    },
+                    //刷新
+                    "cmRefresh": function (t) {
+                        processData = _canvas.getProcessInfo();
+                        location.reload();
+                        //_canvas.refresh();
+                    },
+
+                    "cmPaste": function(t) {
+                        var pasteId = _canvas.paste();//右键当前的ID
+                        if(pasteId<=0)
+                        {
+                            layer.msg("你未复制任何步骤");
+                            return ;
+                        }
+                        console.log(_canvas.getProcessInfo());
+                        _canvas.addProcess(_canvas.getProcessInfo(pasteId));
+                        layer.msg("粘贴:" + pasteId);
+                    },
+                    "cmHelp": function (t) {
+                        //mAlert('<ul><li><a href="http://flowdesign.leipi.org/doc.html" target="_blank">流程设计器 开发文档</a></li><li><a href="http://formdesign.leipi.org/doc.html" target="_blank">表单设计器 开发文档</a></li><li><a href="http://formdesign.leipi.org/demo.html" target="_blank">表单设计器 示例DEMO</a></li></ul>', 20000);
+                        mAlert('<div style="text-align:center"><img src="/Content/FlowDesign/images/loading.gif"/></div>', 20000);
+                    }
+
+                }
+                /*步骤右键*/
+                , processMenus: {
+
+                    "pmBegin":function(t)
+                    {
+                        var activeId = _canvas.getActiveId();//右键当前的ID
+                        alert("设为第一步:"+activeId);
+                    },
+                    "pmAddson":function(t)//添加子步骤
+                    {
+                        var activeId = _canvas.getActiveId();//右键当前的ID
+                    },
+                    "pmCopy": function (t) {
+                        var activeId = _canvas.getActiveId();//右键当前的ID
+                        _canvas.copy(activeId);//右键当前的ID
+                        layer.msg("复制成功");
+                    },
+                    "pmDelete": function (t) {
+                        layer.confirm('你确定删除步骤吗?', function (index) {
+                            var activeId = _canvas.getActiveId();//右键当前的ID
+                            console.log(activeId);
+                            _canvas.delProcess(activeId);//清除步骤
+                            layer.close(index);
+                        });
+                    },
+                    "pmAttribute": function (t) {
+                        var activeId = _canvas.getActiveId();//右键当前的ID
+                        var url = "/Flowdesign/attribute/id/" + activeId + ".html";
+                        ajaxModal(url, function () {
+                            //alert('加载完成执行')
+                        });
+                    },
+                    "pmForm": function (t) {
+                        var activeId = _canvas.getActiveId();//右键当前的ID
+                        var url = "/Flowdesign/attribute/op/form/id/" + activeId + ".html";
+                        ajaxModal(url, function () {
+                            //alert('加载完成执行')
+                        });
+                    },
+                    "pmJudge": function (t) {
+                        var activeId = _canvas.getActiveId();//右键当前的ID
+                        var url = "/Flowdesign/attribute/op/judge/id/" + activeId + ".html";
+                        ajaxModal(url, function () {
+                            //alert('加载完成执行')
+                        });
+                    },
+                    "pmSetting": function (t) {
+                        var activeId = _canvas.getActiveId();//右键当前的ID
+                        var url = "/Flowdesign/attribute/op/style/id/" + activeId + ".html";
+                        ajaxModal(url, function () {
+                            //alert('加载完成执行')
+                        });
+                    }
+                }
+                , fnRepeat: function () {
+                    //alert("步骤连接重复1");//可使用 jquery ui 或其它方式提示
+                    mAlert("步骤连接重复了，请重新连接");
+
+                }
+                , fnClick: function () {
+                    var activeId = _canvas.getActiveId();
+                    //mAlert("查看步骤信息 " + activeId);
+                    console.log(_canvas.getProcessInfo(activeId));
+                    //$("#dragBox_Attribute").css("visibility", "visible");
+                    $("#dragBox_Attribute").show(300);
+                    $("#dragBox_Attribute #txtTitle").val("节点编号" + activeId);
+                    $("#dragBox_Attribute #txtTitle2").val("步骤" + activeId);
+                    $("#dragBox_Attribute #txtTitle3").val("表单" + activeId);
+                    $("#dragBox_Attribute #txtTitle4").val("描述" + activeId);
+                }
+                , fnDbClick: function () {
+                    //和 pmAttribute 一样
+                    var activeId = _canvas.getActiveId();//右键当前的ID
+                    var url = "/Flowdesign/attribute/id/" + activeId + ".html";
+                    ajaxModal(url, function () {
+                        //alert('加载完成执行')
+                    });
+                }
+            });
+            $("#btnClose").bind("click", function () {
+                $("#dragBox_Attribute").hide(500);
+            });
+            $("#add_step_1").bind('click', function () {
+                var mLeft ="200px", mTop ="100px";
+                //data.info=>
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon: 'icon-user',
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name: '开始',
+                    process_to: '',
+                    node_class: 'nod-Start',
+                    style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            });
+            $("#add_step_2").bind('click', function () {
+                var mLeft = "200px", mTop = "200px";
+                //data.info=>
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon: 'icon-file',
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name: '任务',
+                    process_to: '',
+                    node_class: 'nod-Task',
+                    style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            });
+            $("#add_step_3").bind('click', function () {
+                var mLeft = "200px", mTop = "300px";
+                //data.info=>
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon: 'icon-time',
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name: '状态',
+                    process_to: '',
+                    node_class: 'nod-State',
+                    style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            });
+            $("#add_step_4").bind('click', function () {
+                var mLeft = "200px", mTop = "400px";
+                //data.info=>
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon: 'icon-resize-full',
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name: '分支',
+                    process_to: '',
+                    node_class: 'nod-Branch',
+                    style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            });
+            $("#add_step_5").bind('click', function () {
+                var mLeft = "200px", mTop = "500px";
+                //data.info=>
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon: 'icon-resize-small',
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name: '合并',
+                    process_to: '',
+                    node_class: 'nod-Merge',
+                    style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            });
+            $("#add_step_6").bind('click', function () {
+                var mLeft = "200px", mTop = "600px";
+                //data.info=>
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon: 'icon-ok',
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name: '结束',
+                    process_to: '',
+                    node_class: 'nod-End',
+                    style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            });
+            $("#add_step_7").bind('click', function () {
+                var mLeft = "200px", mTop = "700px";
+                //data.info=>
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon: 'icon-minus-sign',
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name: '取消',
+                    process_to: '',
+                    node_class: 'nod-Cancel',
+                    style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            });
+            $("#add_step_8").bind('click', function () {
+                var mLeft = "200px", mTop = "800px";
+                //data.info=>
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon: 'icon-remove-circle',
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name: '错误',
+                    process_to: '',
+                    node_class: 'nod-Error',
+                    style: 'left:' + mLeft + ';top:' + mTop + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            });
+            /*保存*/
+            $("#leipi_save").bind('click', function () {
+                var processInfo = _canvas.getProcessInfo();//连接信息
+                console.log(processInfo);
+                layer.msg(processInfo);
+                //var url = "/Flowdesign/save_canvas.html";
+                //$.post(url, { "flow_id": the_flow_id, "process_info": processInfo }, function (data) {
+                //    mAlert(data.msg);
+                //}, 'json');
+            });
+            
+            $("#abtn_saveDesign").bind('click', function () {
+                var processInfo = _canvas.getProcessData();//连接信息
+                console.log(processInfo);
+                layer.msg(processInfo);
+                //var url = "/Flowdesign/save_canvas.html";
+                //$.post(url, { "flow_id": the_flow_id, "process_info": processInfo }, function (data) {
+                //    mAlert(data.msg);
+                //}, 'json');
+            });
+            //刷新画布
+            $("#abtn_refreshDesign").unbind("click").bind("click", function () {
+                _canvas.refresh();
+            });
+            /*清除*/
+            $("#leipi_clear").bind('click', function () {
+                if (_canvas.clear()) {
+                    //alert("清空连接成功");
+                    mAlert("清空连接成功，你可以重新连接");
+                } else {
+                    //alert("清空连接失败");
+                    mAlert("清空连接失败");
+                }
+            });
+
+            $("#dragBox_tool div.mxWindowContent ul li").draggable({
+                helper: "clone"
+            });
+            $("#flowdesign_canvas").draggable({
+                containment: $("#flowdesign_canvas").length ? "#flowdesign_canvas" : "document"
+            });
+            var elments = ["Start", "Task", "State", "Branch", "Merge", "End", "Cancel","Error"];
+            $("#flowdesign_canvas").droppable({
+                drop: function (event, e) {
+                    if ($.inArray(e.draggable[0].className.split(' ')[0].split('_')[1], elments) >= 0) {
+                        var index = $.inArray(e.draggable[0].className.split(' ')[0].split('_')[1], elments);
+                        var styleName = e.draggable[0].className.split(' ')[0].split('_')[1];
+                        var sign = parseInt(Math.random() * 1000);
+                        var eID = "";
+                        var osX = event.offsetX;
+                        var osY = event.offsetY;
+                        var clX = event.clientX;
+                        var clY = event.clientY;
+                        var scX = event.screenX;
+                        var scY = event.screenY;
+                        var pgX = event.pageX;
+                        var pgY = event.pageY;
+                        switch (index) {
+                            case 0:
+                                //data.info=>
+                                var nodeData = {
+                                    flow_id: parseInt(Math.random(1000) * 1000),
+                                    icon: 'icon-user',
+                                    id: parseInt(Math.random(1000) * 1000),
+                                    process_name: '开始',
+                                    process_to: '',
+                                    node_class: 'nod-' + styleName,
+                                    node_data:[],
+                                    style: 'left:' + clX + 'px;top:' + clX + 'px;color:#0e76a8;'
+                                };
+                                _canvas.addProcess(nodeData);
+                                break;
+                            case 1:
+                                //data.info=>
+                                var nodeData = {
+                                    flow_id: parseInt(Math.random(1000) * 1000),
+                                    icon: 'icon-file',
+                                    id: parseInt(Math.random(1000) * 1000),
+                                    process_name: '任务',
+                                    process_to: '',
+                                    node_class: 'nod-' + styleName,
+                                    style: 'left:' + clX + 'px;top:' + clY + 'px;color:#0e76a8;'
+                                };
+                                _canvas.addProcess(nodeData);
+                                break;
+                            case 2:
+                                //data.info=>
+                                var nodeData = {
+                                    flow_id: parseInt(Math.random(1000) * 1000),
+                                    icon: 'icon-time',
+                                    id: parseInt(Math.random(1000) * 1000),
+                                    process_name: '状态',
+                                    process_to: '',
+                                    node_class: 'nod-' + styleName,
+                                    style: 'left:' + clX + 'px;top:' + clX + 'px;color:#0e76a8;'
+                                };
+                                _canvas.addProcess(nodeData);
+                                break;
+                            case 3:
+                                //data.info=>
+                                var nodeData = {
+                                    flow_id: parseInt(Math.random(1000) * 1000),
+                                    icon: 'icon-resize-full',
+                                    id: parseInt(Math.random(1000) * 1000),
+                                    process_name: '分支',
+                                    process_to: '',
+                                    node_class: 'nod-' + styleName,
+                                    style: 'left:' + clX + 'px;top:' + clX + 'px;color:#0e76a8;'
+                                };
+                                _canvas.addProcess(nodeData);
+                                break;
+                            case 4:
+                                //data.info=>
+                                var nodeData = {
+                                    flow_id: parseInt(Math.random(1000) * 1000),
+                                    icon: 'icon-resize-small',
+                                    id: parseInt(Math.random(1000) * 1000),
+                                    process_name: '合并',
+                                    process_to: '',
+                                    node_class: 'nod-' + styleName,
+                                    style: 'left:' + clX + 'px;top:' + clX + 'px;color:#0e76a8;'
+                                };
+                                _canvas.addProcess(nodeData);
+                                break;
+                            case 5:
+                                //data.info=>
+                                var nodeData = {
+                                    flow_id: parseInt(Math.random(1000) * 1000),
+                                    icon: 'icon-ok',
+                                    id: parseInt(Math.random(1000) * 1000),
+                                    process_name: '结束',
+                                    process_to: '',
+                                    node_class: 'nod-' + styleName,
+                                    style: 'left:' + clX + 'px;top:' + clX + 'px;color:#0e76a8;'
+                                };
+                                _canvas.addProcess(nodeData);
+                                break;
+                            case 6:
+                                //data.info=>
+                                var nodeData = {
+                                    flow_id: parseInt(Math.random(1000) * 1000),
+                                    icon: 'icon-minus-sign',
+                                    id: parseInt(Math.random(1000) * 1000),
+                                    process_name: '取消',
+                                    process_to: '',
+                                    node_class: 'nod-' + styleName,
+                                    style: 'left:' + clX + 'px;top:' + clX + 'px;color:#0e76a8;'
+                                };
+                                _canvas.addProcess(nodeData);
+                                break;
+                            case 7:
+                                //data.info=>
+                                var nodeData = {
+                                    flow_id: parseInt(Math.random(1000) * 1000),
+                                    icon: 'icon-remove-circle',
+                                    id: parseInt(Math.random(1000) * 1000),
+                                    process_name: '错误',
+                                    process_to: '',
+                                    node_class: 'nod-' + styleName,
+                                    style: 'left:' + clX + 'px;top:' + clX + 'px;color:#0e76a8;'
+                                };
+                                _canvas.addProcess(nodeData);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            });
+
+            //var sInfo = {icon:'',title:'',left:100,top:100,class:'nod-Start'};
+            function addStep(sInfo) {
+                var nodeData = {
+                    flow_id: parseInt(Math.random(1000) * 1000),
+                    icon:sInfo.icon,
+                    id: parseInt(Math.random(1000) * 1000),
+                    process_name:sInfo.title,
+                    process_to: '',
+                    node_class:sInfo.class,
+                    style: 'left:' + sInfo.left + ';top:' + sInfo.top + ';color:#0e76a8;'
+                };
+                _canvas.addProcess(nodeData);
+            }
+        });
+
+</script>

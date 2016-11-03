@@ -1,0 +1,499 @@
+﻿@charset "utf-8";
+/*reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    font-family: "΢���ź�";
+}
+
+/*chartform css*/
+div.bdbox {
+            min-height: 800px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .table th {
+                font-weight: bold;
+            }
+
+            .table th, .table td {
+                padding: 8px;
+                line-height: 20px;
+                text-align: left;
+                vertical-align: top;
+                border-top: 1px solid #dddddd;
+            }
+
+            .table th, .table td {
+                padding: 8px;
+                line-height: 20px;
+                text-align: left;
+                vertical-align: top;
+                border-top: 1px solid #dddddd;
+            }
+
+        .btn {
+            display: inline-block;
+            *display: inline;
+            padding: 4px 12px;
+            margin-bottom: 0;
+            *margin-left: .3em;
+            font-size: 14px;
+            line-height: 20px;
+            color: #333333;
+            text-align: center;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            *background-color: #e6e6e6;
+            background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+            background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            background-repeat: repeat-x;
+            border: 1px solid #cccccc;
+            *border: 0;
+            border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+            border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+            border-bottom-color: #b3b3b3;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            *zoom: 1;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-info {
+            color: #ffffff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            background-color: #49afcd;
+            background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+            background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+            background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+            background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
+            background-repeat: repeat-x;
+            border-color: #2f96b4 #2f96b4 #1f6377;
+            border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+        }
+
+        .btn-success {
+            color: #ffffff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            background-color: #5bb75b;
+            background-image: -moz-linear-gradient(top, #62c462, #51a351);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+            background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+            background-image: -o-linear-gradient(top, #62c462, #51a351);
+            background-image: linear-gradient(to bottom, #62c462, #51a351);
+            background-repeat: repeat-x;
+            border-color: #51a351 #51a351 #387038;
+            border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+        }
+
+        .btn:hover,
+        .btn:focus,
+        .btn:active,
+        .btn.active,
+        .btn.disabled,
+        .btn[disabled] {
+            color: #333333;
+            background-color: #e6e6e6;
+        }
+
+        .btn:active,
+        .btn.active {
+            background-color: #cccccc;
+        }
+
+        .btn:first-child {
+            *margin-left: 0;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            color: #333333;
+            text-decoration: none;
+            background-position: 0 -15px;
+            -webkit-transition: background-position 0.1s linear;
+            -moz-transition: background-position 0.1s linear;
+            -o-transition: background-position 0.1s linear;
+            transition: background-position 0.1s linear;
+        }
+
+        .btn:focus {
+            outline: thin dotted #333;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px;
+        }
+
+        .btn.active,
+        .btn:active {
+            background-image: none;
+            outline: 0;
+            -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn.disabled,
+        .btn[disabled] {
+            cursor: default;
+            background-image: none;
+            opacity: 0.65;
+            filter: alpha(opacity=65);
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+
+        a {
+            color: #0088cc;
+            text-decoration: none;
+        }
+
+        #createForm {
+            margin: 0;
+            padding: 0;
+        }
+
+            #createForm table {
+                width: 100%;
+            }
+
+                #createForm table td:first-child {
+                    text-align: right;
+                    vertical-align: top;
+                }
+
+                #createForm table input, select {
+                    height: 25px;
+                    line-height: 25px;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                /*chartview css*/
+
+        .ed span {
+            min-height: 20px;
+            line-height: 20px;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /*Flowchart CSS*/
+
+
+        path, ._jsPlumb_endpoint {
+            z-index: 10;
+            cursor: pointer;
+        }
+        
+        .right-canvas-box {
+            width: 200px;
+            min-height: 800px;
+            float: left;
+            border: 1px solid gray;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .canvas-menu {
+            overflow: auto;
+        }
+
+            .canvas-menu ul {
+                width: 200px;
+                list-style: none;
+                float: none;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+            }
+
+                .canvas-menu ul li {
+                    height: 25px;
+                    line-height: 25px;
+                    margin: 2px;
+                    padding: 0 0 0 10px;
+                    border: 1px solid gray;
+                    text-align: left;
+                }
+
+                    .canvas-menu ul li a {
+                        height: 25px;
+                        line-height: 25px;
+                        display: block;
+                    }
+
+                    .canvas-menu ul li span {
+                        vertical-align: middle;
+                        display: inline-block;
+                        margin: 0 0 0 5px;
+                    }
+
+        .color-box #red {
+            background: red;
+        }
+
+        .color-box #green {
+            background: green;
+        }
+
+        .color-box #blue {
+            background: blue;
+        }
+
+        .color-box #yellow {
+            background: yellow;
+        }
+
+        .color-box #white {
+            background: white;
+        }
+
+        .color-box #black {
+            background: black;
+        }
+
+        .color-box #pink {
+            background: #FF00FF;
+        }
+
+        .color-box #purple {
+            background: purple;
+        }
+
+        .color-box #cyan {
+            background: #8EE5EE;
+        }
+
+        .color-box #orange {
+            background: orange;
+        }
+        /*.color-box li:nth-child(1) {
+            background: red;
+        }*/
+        img {
+            vertical-align: middle;
+        }
+
+        .subNavBox {
+            width: 200px;
+            border: solid 1px #e5e3da;
+            margin: 100px auto;
+        }
+
+        .subNav {
+            border-bottom: solid 1px #e5e3da;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            color: #999;
+            line-height: 28px;
+            padding-left: 10px;
+            background: url(../Images/jiantou1.jpg) no-repeat;
+            background-position: 95% 50%;
+        }
+
+            .subNav:hover {
+                color: #277fc2;
+            }
+
+        .currentDd {
+            color: #277fc2;
+        }
+
+        .currentDt {
+            background-image: url(../Images/jiantou.jpg);
+        }
+
+        .navContent {
+            display: none;
+            border-bottom: solid 1px #e5e3da;
+        }
+
+            .navContent li a {
+                display: block;
+                height: 28px;
+                font-size: 14px;
+                line-height: 28px;
+                color: #333;
+            }
+
+                .navContent li a:hover {
+                    color: #fff;
+                    background-color: #277fc2;
+                }
+
+        .component {
+            background: url(../Images/gridme.png) repeat center center;
+            border: 1px solid #49708A;
+            border-radius: 5px;
+            -moz-box-shadow: 10px 10px inset gray;
+            -webkit-box-shadow: 10px 10px inset gray;
+            box-shadow: 10px 10px inset gray;
+            overflow: hidden;
+        }
+
+        .rect {
+            width: 100px;
+            min-height: 50px;
+            line-height: 50px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .rectFill {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid black;
+            -webkit-transform: skew(20deg);
+            -moz-transform: skew(20deg);
+            -o-transform: skew(20deg);
+        }
+
+        .arc {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            border: 1px solid black;
+            border-radius: 50px;
+        }
+
+        .arcfill {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid black;
+            -moz-border-radius: 100px / 50px;
+            -webkit-border-radius: 100px / 50px;
+            border-radius: 100px / 50px;
+        }
+
+        .poly {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid black;
+            -moz-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        .poly>div{
+            -moz-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+        .poly>span{
+            -webkit-transform: rotate(-90deg);
+          -moz-transform: rotate(-90deg);
+          filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+          display:block;
+        }
+        .ed span {
+            min-height: 20px;
+            line-height: 20px;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            padding: 0;
+        }
+        /*Flowchart CSS*/
+        .ed {
+            border: 1px solid #346789;
+            box-shadow: 2px 2px 19px #aaa;
+            -o-box-shadow: 2px 2px 19px #aaa;
+            -webkit-box-shadow: 2px 2px 19px #aaa;
+            -moz-box-shadow: 2px 2px 19px #aaa;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            text-align: center;
+            z-index: 9;
+            position: absolute;
+            background-color: #eeeeef;
+            z-index:20;
+            color: black;
+            font-family: helvetica;
+            padding: 0.5em;
+            font-size: 0.9em;
+            -webkit-transition: -webkit-box-shadow 0.15s ease-in;
+            -moz-transition: -moz-box-shadow 0.15s ease-in;
+            -o-transition: -o-box-shadow 0.15s ease-in;
+            transition: box-shadow 0.15s ease-in;
+            cursor: move;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+            .ed:hover {
+                box-shadow: 2px 2px 19px #444;
+                -o-box-shadow: 2px 2px 19px #444;
+                -webkit-box-shadow: 2px 2px 19px #444;
+                -moz-box-shadow: 2px 2px 19px #444;
+                opacity: 0.6;
+                filter: alpha(opacity=60);
+            }
+
+        .aLabel {
+            background-color: white;
+            padding: 0.4em;
+            font: 12px sans-serif;
+            color: #444;
+            z-index: 10;
+            border: 1px dotted gray;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            cursor: pointer;
+        }
+
+        .endpointTargetLabel, .endpointSourceLabel {
+            z-index: 10;
+            cursor: pointer;
+        }
+
+
+        ._jsPlumb_overlay {
+            background-color: transparent;
+        }
+
+        .dragSelf {
+            min-height: 800px;
+            margin: 0 0 0 205px;
+            cursor: crosshair;
+            position: relative;
+        }
+
+         #demo1 {
+            top: 50px;
+            left: 250px;
+        }
+
+        #demo2 {
+            top: 300px;
+            left: 500px;
+        }
+
+        

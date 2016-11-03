@@ -1,0 +1,187 @@
+﻿html, body, div, span, applet, object, iframe, table, caption, 
+tbody, tfoot, thead, tr, th, td, del, dfn, em, font, img, ins, 
+kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, 
+acronym, address, big, cite, code, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend { 
+    vertical-align: baseline; 
+    font-family: inherit; 
+    font-weight: inherit; 
+    font-style: inherit; 
+    font-size: 100%; 
+    outline: 0; 
+    padding: 0; 
+    margin: 0; 
+    border: 0; 
+} 
+:focus { 
+    outline: 0; 
+} 
+body { 
+    background: white; 
+    line-height: 1; 
+    color: black; 
+} 
+ol, ul { 
+    list-style: none; 
+} 
+table { 
+    border-collapse: separate; 
+    border-spacing: 0; 
+} 
+caption, th, td { 
+    font-weight: normal; 
+    text-align: left; 
+} 
+blockquote:before, blockquote:after, q:before, q:after { 
+    content:""; 
+} 
+blockquote, q { 
+    quotes:"" ""; 
+}
+
+/*begin css*/
+.main{
+    width:100%;
+    height:100%;
+    background:url('../Images/body_bg.jpg')repeat;
+}
+.container{
+    top: 50px;
+    position: relative;
+    width:1000px;
+    height:100%;
+    min-height:1080px;
+    margin:0px auto;
+    padding:10px;
+    border-radius:5px;
+    box-shadow:0 8px #ccc;
+    background:url('../Images/whitey.png') scroll repeat #fff;
+}
+nav{
+    background:#ccc;
+    height:50px;
+    width:100%;
+    margin:0 auto;
+    padding:0;
+    position:fixed;
+    top:0;
+    z-index:8;
+}
+nav a{
+    text-decoration:none;
+}
+.logo {
+    width:200px;
+    height:50px;
+    line-height:50px;
+    display:inline-block;
+    float:left;
+    font-size:20px;
+}
+.logo a{
+    cursor:none;
+    color:#fff;
+}
+.navbar-header{
+    margin:0;
+    width:100%;
+    height:50px;
+    background:url('../Images/darkdenim3.png')repeat-x;
+    color:#fff;
+}
+.navbar-header>ul{
+    list-style:none;
+    float:left;
+    margin:0;
+    position:absolute;
+    left:200px;
+    height:50px;
+}
+.navbar-header>ul>li{
+    display:inline-block;
+    line-height:50px;
+    text-align:center;
+    margin:0 10px;
+    padding:0;
+    color:#fff;
+    position:relative;
+}
+.navbar-header>ul>li:hover{
+    /*border-bottom:1px solid #ff0000;*/
+}
+.navbar-header>ul>li:hover>span{
+    background-image:url('../Images/loading.gif');
+    background-size:30px 30px;
+}
+.navbar-header>ul>li:hover>a{
+    border-bottom:2px solid #ff0000;
+    color:#ff6a00;
+    background:none;
+}
+.navbar-header>ul>li>span{
+    color:#fff;
+    display:inline-block;
+    height:30px;
+    width:30px;
+    margin:0 5px 0 0;
+    line-height: 30px;
+    vertical-align: middle;
+}
+.navbar-header>ul>li>a{
+    margin:0 auto;
+    padding:0;
+    line-height:40px;
+    vertical-align: middle;
+    color:#fff;
+    display: inline-block;
+    height: 40px;
+}
+.navbar-header p{
+    display:inline-block;
+    float:right;
+    margin:15px;
+}
+
+.navbar-collapse{
+    height:auto;
+    position:absolute;
+    top:50px;
+    background:#2c2c2c;
+    display:none;
+    border:1px solid #ccc;
+    border-radius:5px;
+    list-style:none;
+    width:120px;
+    margin:-1px 0;
+    padding:5px;
+}
+.navbar-collapse li{
+    text-align:left;
+    margin:0;
+    padding:0;
+    list-style:none;
+    line-height:25px;
+    border-bottom:2px dotted #ccc;
+}
+.navbar-collapse li:hover{
+    border-bottom-color:#ff6a00;
+    
+}
+.navbar-collapse li:hover a{
+    color:#ff6a00;
+}
+.navbar-collapse li a{
+    color:#fff;
+    text-decoration:none;
+}
+
+.logoff{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+    vertical-align: middle;
+    margin: 0;
+    padding: 7px;
+}

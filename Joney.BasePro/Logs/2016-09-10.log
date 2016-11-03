@@ -1,0 +1,8 @@
+
+ 
+记录时间: 2016-09-10 11:50:02,759 
+线程ID: [24] 
+日志级别: ERROR 
+信息类: Joney.BasePro.Models.MyFilter+ExceptionAttribut property: [(null)] - 
+信息描述: 192.168.1.156_Break The Line...——http://localhost:5324/Home/FlowWork?Length=6 —— 未找到分部视图“/Shared/_Layer”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+/Shared/_Layer 

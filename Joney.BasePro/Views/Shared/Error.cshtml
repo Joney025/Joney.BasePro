@@ -1,0 +1,60 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "错误";
+}
+
+<style type="text/css">
+     .error-box{
+         background:url('@Url.Content("../Images/404.jpg")')no-repeat;
+         margin:0 auto;
+         padding:0;
+         width:550px;
+         height:440px;
+         position:relative;
+     }
+    .error-msg{
+        position:relative;
+        top:300px;
+        left:30px;
+        text-align:center;
+    }
+</style>
+<script type="text/javascript" language="javascript">
+        var i =5;
+        var intervalid;
+        intervalid = setInterval("fun()", 1000);
+        function fun()
+        {
+            if (i == 0) {
+                clearInterval(intervalid);
+                goback();
+            }
+            document.getElementById("mes").innerHTML = i;
+            i--;
+        }
+        function goback() {
+            var wind = window.top!=window.self;
+            if (wind) {
+                window.parent.location.reload();
+                window.close();
+            } else {
+                window.history.go(-1);
+            }
+    }
+    function stopClose() {
+        window.clearInterval(intervalid);
+    }
+</script>
+<div class="error-box">
+    <div class="error-msg">
+        <h1 class="text-danger" style="color:red;font-size:15px;">抱歉，您访问的页面地址有误，</h1>
+        <h2 class="text-danger" style="color:red;font-size:20px;">或者该页面不存在。</h2>
+        <p style="text-align:center;">将在 <span id="mes" style="color:red;">5</span> 秒之后页面自动跳转上层页面！</p>
+        <p style="text-align:center;">
+            <a id="stop" style="text-decoration:none;cursor:pointer;" onclick="stopClose();">[停留？]</a>
+            <a id="back" style="text-decoration:none;cursor:pointer;" onclick="goback();">[返回？]</a>
+        </p>
+    </div>
+</div>
+

@@ -1,0 +1,21 @@
+
+ 
+记录时间: 2016-09-06 10:35:02,480 
+线程ID: [10] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/9/6 10:35:02 
+
+ 
+记录时间: 2016-09-06 10:37:11,689 
+线程ID: [9] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/9/6 10:37:11 
+
+ 
+记录时间: 2016-09-06 10:40:46,359 
+线程ID: [9] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/9/6 10:40:46 

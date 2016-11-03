@@ -1,0 +1,15 @@
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\Joney.UtilityClassLibrary.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\Joney.UtilityClassLibrary.pdb
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\ICSharpCode.SharpZipLib.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\log4net.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\Newtonsoft.Json.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\NPOI.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\NPOI.OOXML.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\NPOI.OpenXml4Net.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\NPOI.OpenXmlFormats.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\NPOI.xml
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\NPOI.OOXML.xml
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\bin\Release\NPOI.OpenXml4Net.xml
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\obj\Release\Joney.UtilityClassLibrary.csprojResolveAssemblyReference.cache
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\obj\Release\Joney.UtilityClassLibrary.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.UtilityClassLibrary\obj\Release\Joney.UtilityClassLibrary.pdb

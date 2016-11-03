@@ -1,0 +1,1231 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+#tiBox {
+    display: block;
+    width: 80px;
+    height: 75px;
+    cursor: pointer;
+    position: fixed;
+    top: 68%;
+    right: 10px;
+    background: url("../Images/msgIm.png") no-repeat;
+    text-align: center;
+}
+
+#talkBox {
+    filter: revealTrans(Duration=1.5,Transition=12);
+    position: relative;
+    z-index: 999;
+    /*visibility:hidden;*/
+}
+
+#taBox {
+    display: none;
+    /*width:250px;height: 400px;*/
+    z-index: 999;
+    clear: both;
+    position: fixed;
+    right: 90px;
+    bottom: 10px;
+    border: 1px solid #7d7a7a;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.msgImg {
+    display: inline-block;
+}
+
+.msgMedia {
+    display: inline-block;
+}
+
+#msgList {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    height: auto;
+}
+
+    #msgList li {
+        list-style-type: none;
+        clear: both;
+        float: none;
+        display: block;
+        margin:0 0 5px 0;
+        padding: 0;
+        overflow:hidden;
+        /*min-height: 30px;
+        line-height:30px;*/
+    }
+    .waitingBox{
+        width: 200px;
+        margin: 0 auto;
+        background: #9A9A9A;
+        position: relative;
+        border-radius: 5px;
+    }
+    .waitingBox .lb_tip{
+        position: absolute;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        width: 200px;
+        color: #fff;
+        height: 16px;
+        line-height: 16px;
+    }
+.msgAlign-left {
+    text-align: left;
+}
+
+.msgAlign-right {
+    text-align: right;
+}
+
+#txtInput:focus {
+    border: 1px solid green;
+}
+
+.img-80px {
+    max-height: 80px;
+    max-width: 80px;
+    font-size: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.message-content {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 4px;
+    background: #ededed;
+    border: 1px solid #e3e3e3;
+    color: #666;
+    position: relative;
+    border-radius: 4px;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: left;
+    max-width: 300px;
+}
+
+    .message-content .message-content-text {
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #666;
+        display: inline-block;
+    }
+
+#msgList .icon-arrows {
+    display: block;
+    width: 6px;
+    height: 11px;
+    position: absolute;
+    right: -6px;
+    top: 10px;
+    background: url(../Images/ico-voice-right.png);
+}
+
+#msgList .icon-arrows-left {
+    display: block;
+    width: 6px;
+    height: 11px;
+    position: absolute;
+    left: -6px;
+    top: 10px;
+    background: url(../Images/ico-voice-left.png);
+}
+
+.uPic {
+    margin-top: 10px;
+    display: block;
+    float: right;
+}
+
+.uPic-left {
+    margin-top: 10px;
+    display: inline;
+    float: left;
+}
+
+#imgBar {
+    margin: 0 auto;
+    padding: 2px 5px;
+}
+
+    #imgBar a {
+        cursor: pointer;
+    }
+
+.t-face {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin: 0px;
+    padding: 0px;
+    background: url("../Images/icon-talk-img.png")no-repeat;
+    background-position: -4px 1px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.t-img {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin: 0px;
+    padding: 0px;
+    background: url("../Images/icon-talk-img.png")no-repeat;
+    background-position: -30px 1px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.t-file {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin: 0px;
+    padding: 0px;
+    background: url("../Images/icon-talk-img.png")no-repeat;
+    background-position: -58px 1px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.t-topic {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 5px 0 0 0;
+    padding: 0px;
+    background: url("../Images/3key.png")no-repeat;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.t-atUser {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 10px 0 0 5px;
+    padding: 0px;
+    background: url("../Images/iocu.png")no-repeat;
+    overflow: hidden;
+    vertical-align: middle;
+    background-position: -465px -175px;
+}
+
+#top {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    background: url("../Images/top.png") no-repeat;
+}
+
+#bot {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    background: url("../Images/bottom.png") no-repeat;
+}
+
+    #top, #bot a {
+        display: inline-block;
+    }
+
+
+/**通话UI**/
+#talkingBoxGroup {
+    width: 552px;
+}
+
+#talkingBox {
+    width: 400px;
+}
+
+.talkingBox {
+    height: 400px;
+    background: #ffffff;
+    border: 1px solid #7d7a7a;
+    border-radius: 5px;
+    box-shadow: 5px 5px rgba(0,0,0,0.06) !important;
+    position: fixed;
+    right: 340px;
+    bottom: 10px;
+    display: none;
+    z-index: 10000;
+}
+
+    .talkingBox > .topTitle {
+        height: 40px;
+        margin: 0px;
+        padding: 0;
+        border-bottom: 1px solid gray;
+        position: relative;
+        cursor: move;
+    }
+
+#talkingBox .topTitle {
+    cursor: move;
+}
+
+.user-pic {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 2px;
+    background: #fff;
+    z-index: 1;
+}
+
+    .user-pic img {
+        border: none;
+        min-height:80px;
+        min-width:80px;
+        max-height: 80px;
+        max-width: 80px;
+        text-align: center;
+        font-size: 0px;
+        vertical-align: middle;
+        margin: 0px;
+        padding: 0px;
+    }
+
+.tName {
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 0 0 100px;
+    position: absolute;
+    top: 10px;
+
+    width:400px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.top-talk-close {
+    float: right;
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin: 3px;
+    padding: 0px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+}
+
+    .top-talk-close a {
+        width: 20px;
+        cursor: pointer;
+    }
+
+.talkingBox .msgBox {
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.imgBar {
+    border-top: 1px solid gray;
+    /*border-bottom: 1px solid gray;*/
+    height: 30px;
+    background: #f3f3f3;
+}
+
+.talkingBox .contentBox {
+    padding: 3px;
+}
+
+.msgArea {
+    width: 398px;
+    height: 80px;
+    resize: none;
+    padding: 0;
+}
+
+.sendBar {
+    float: right;
+    margin: 0;
+    padding: 3px;
+    height: 30px;
+    display: inline-block;
+}
+
+.fs-emoji-cookie {
+    display: none;
+    z-index: 999;
+    background: #fff;
+}
+
+    .fs-emoji-cookie div.faces_list_box {
+        width: 390px;
+        z-index: 1000;
+        background: #fff;
+    }
+
+.talk-tab {
+    height: 30px;
+    border-bottom: 1px solid #DBDBDB;
+    background-color: #F4F4F4;
+    font-size: 0;
+}
+
+    .talk-tab > span {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        border-right: 1px solid #DBDBDB;
+        cursor: pointer;
+        font-size: 12px;
+        text-align: center;
+        background:rgba(212, 207, 207, 0.30);
+    }
+
+    .talk-tab span.info::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: url(../Images/systemmsg_unread.png);
+        background-size: 100% 100%;
+        top: 2px;
+        left: 20px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .talk-tab span i {
+        top: 6px;
+        left: 15%;
+        width: 20px;
+        margin: 0 -3px;
+        height: 20px;
+        line-height: 20px;
+        position: absolute;
+        vertical-align: middle;
+        /*background: url(../Images/iconim.png) no-repeat;*/
+        background: url(../Images/iocu.png) no-repeat;
+    }
+
+    .talk-tab .c-list i {
+        background-position: -612px -148px;
+        margin: 0 -10px;
+    }
+
+    .talk-tab .g-list i {
+        background-position: -415px -173px;
+    }
+
+    .talk-tab .n-list i {
+        background-position: -415px -48px;
+    }
+
+    .talk-tab .tab-now {
+        height: 31px;
+        background-color: #fff;
+    }
+
+.im-set-box {
+}
+
+    .im-set-box > ul {
+        height: 32px;
+        border-top: 1px solid #D0DCF3;
+        background-color: #F2F4F8;
+    }
+
+        .im-set-box > ul > li {
+            position: relative;
+            width: 60px;
+            height: 32px;
+            line-height: 32px;
+            float: left;
+            border-right: 1px solid #D0DCF3;
+            cursor: pointer;
+        }
+
+            .im-set-box > ul > li i {
+                position: absolute;
+                background: url(../Images/iconim.png) no-repeat;
+            }
+
+            .im-set-box > ul > li i {
+                left: 10px;
+                top: 10px;
+                width: 13px;
+                height: 13px;
+                background-position: -84px -5px;
+            }
+
+.im-Setting {
+    background: #fff;
+    position: absolute;
+    left: -110px;
+    bottom: 0px;
+    border: 1px solid gray;
+    padding: 3px;
+    border-radius: 5px;
+    z-index: 100001;
+}
+
+    .im-Setting ul {
+        list-style: none;
+    }
+
+        .im-Setting ul li {
+            height: 25px;
+            line-height: 25px;
+            margin: 2px 0;
+        }
+
+            .im-Setting ul li:hover {
+                background: #efefef;
+                cursor: pointer;
+            }
+
+            .im-Setting ul li span {
+                width: 18px;
+                height: 18px;
+                line-height: 18px;
+                display: inline-block;
+                vertical-align: middle;
+                background: url(../Images/iconim.png) no-repeat;
+            }
+
+            .im-Setting ul li:nth-child(1) span {
+                background-position: -48px -2px;
+            }
+
+            .im-Setting ul li:nth-child(2) span {
+                background-position: -32px -2px;
+            }
+
+            .im-Setting ul li:nth-child(3) span {
+                background-position: -82px -2px;
+            }
+
+            .im-Setting ul li:nth-child(4) span {
+                background-position: -133px -38px;
+            }
+
+            .im-Setting ul li a {
+                display: inline-block;
+                height: 20px;
+                line-height: 20px;
+                width: auto;
+                vertical-align: middle;
+                margin: 0 0 0 5px;
+                text-align: center;
+            }
+
+#im-f-set {
+    margin-left: 25px;
+}
+
+/**创建讨论组UI**/
+#createBox {
+    margin: 0px;
+    padding: 10px;
+}
+
+.createBox > div {
+    overflow: hidden;
+}
+
+#createBox .cb-left {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    min-height: 400px;
+    overflow: auto;
+    float: left;
+}
+
+#createBox .cb-left-top {
+    height: 30px;
+}
+
+.cb-left-top input[type=text] {
+    height: 30px;
+    width: 198px;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+#createBox .cb-center {
+    float: left;
+    margin: 0;
+    width: 20px;
+    min-height: 430px;
+}
+
+.cb-center span {
+    width: 16px;
+    height: 35px;
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    margin: 200px 0 0 3px;
+    background: url('../Images/centerBar.png')no-repeat;
+}
+
+#createBox .cb-right {
+    float: right;
+    margin: 0;
+    width: 200px;
+}
+
+#createBox .cb-right-top {
+    margin: 0;
+    padding: 0 0 0 10px;
+    height: 30px;
+    line-height: 30px;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    vertical-align: middle;
+}
+
+    #createBox .cb-right-top span {
+        /*display:inline-block;
+height:20px;
+line-height:20px;
+vertical-align:middle;
+width:auto;*/
+    }
+
+    #createBox .cb-right-top label {
+        /*display:inline-block;
+height:20px;
+line-height:20px;
+vertical-align:middle;*/
+    }
+
+.cb-left-list {
+    height: 400px;
+    border: 1px solid gray;
+    overflow: auto;
+}
+
+.cb-right-list {
+    height: 400px;
+    border: 1px solid gray;
+    overflow: auto;
+}
+
+.bottom-bar {
+    margin: 10px 0 0 0;
+}
+
+    .bottom-bar input[type=text] {
+        width: 158px;
+        height: 30px;
+        border: 1px solid gray;
+    }
+
+        .bottom-bar input[type=text]:focus {
+            border: 1px solid #fa7d3c;
+        }
+
+    .bottom-bar input[type=button] {
+        margin: 0 0 0 20px;
+        border: 1px solid gray;
+        width: 80px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+        .bottom-bar input[type=button]:hover {
+            border: 1px solid #fa7d3c;
+        }
+/*---*/
+#userList {
+    list-style: none;
+}
+
+    #userList li {
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        margin: 2px 0;
+        padding: 0 0 0 10px;
+    }
+
+        #userList li:hover {
+            background: #f2f4f8;
+        }
+
+        #userList li span.u-name {
+            margin: 0 0 0 5px;
+        }
+
+        #userList li img {
+            border: none;
+            vertical-align: middle;
+        }
+
+        #userList li span {
+            display: inline-block;
+            height: 28px;
+            line-height: 28px;
+            vertical-align: middle;
+            overflow: hidden;
+            margin: 0 0 0 5px;
+        }
+/*--创建讨论组已选用户列表-*/
+#selectedList {
+    list-style: none;
+}
+
+    #selectedList li {
+        height: 30px;
+        line-height: 30px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0 0 0 10px;
+    }
+
+        #selectedList li:hover {
+            background: #f2f4f8;
+        }
+
+        #selectedList li span.u-name {
+            margin: 0 0 0 5px;
+        }
+
+        #selectedList li span.op-close {
+            display: none;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 10px;
+            padding: 2px;
+            cursor: pointer;
+            font-size: 16px;
+            color: gray;
+        }
+
+        #selectedList li:hover span.op-close {
+            display: inline-block;
+            color: #fa7d3c;
+        }
+
+        #selectedList li img {
+            border: none;
+            vertical-align: middle;
+        }
+
+        #selectedList li span {
+            display: inline-block;
+            height: 28px;
+            line-height: 28px;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+
+.groupUserList {
+    overflow: auto;
+}
+
+#listUserGroup {
+    list-style: none;
+    height: 330px;
+}
+
+    #listUserGroup li {
+        height: 30px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0 0 0 10px;
+        border-color: #ccc;
+        background: #f1f1f1;
+        background: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f1f1f1));
+        background: -webkit-linear-gradient(white,#f1f1f1);
+        background: -moz-linear-gradient(white,#f1f1f1);
+        background: -ms-linear-gradient(white,#f1f1f1);
+        background: -o-linear-gradient(white,#f1f1f1);
+        background: linear-gradient(#fff,#f1f1f1);
+        position: relative;
+        border-top: 1px solid #e3e3e3;
+        padding: .3em 5px;
+        line-height: 100%;
+    }
+
+        #listUserGroup li:hover {
+            background: #f2f4f8;
+        }
+
+        #listUserGroup li span.u-name {
+            margin: 0 0 0 5px;
+        }
+
+        #listUserGroup li img {
+            border: none;
+            vertical-align: middle;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #listUserGroup li span {
+            margin: 0 0 0 5px;
+            display: inline-block;
+            width: 75px;
+            height: 28px;
+            line-height: 28px;
+            vertical-align: middle;
+            overflow: hidden;
+            white-space: nowrap;
+            word-wrap: break-word;
+        }
+
+    #listUserGroup > li > span.op-close {
+        display: none;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0;
+        padding: 2px;
+        cursor: pointer;
+        font-size: 16px;
+        color: gray;
+    }
+
+    #listUserGroup > li:hover span.op-close {
+        display: inline-block;
+        color: #fa7d3c;
+    }
+
+.g-user-list {
+    overflow: hidden;
+}
+
+
+
+.WB_innerwrap {
+    padding: 16px 16px 9px 16px;
+}
+
+.nameBox {
+    margin-top: 12px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.infoBox {
+    margin-top: 5px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+    font-size: 12px;
+    width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /*cursor: pointer;*/
+}
+
+.contactBox {
+    margin-top: 5px;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+    color: #000000;
+    font-size: 12px;
+}
+
+.user_atten {
+    height: 44px;
+    overflow: hidden;
+    margin: 10px 0 0 0;
+}
+
+    .user_atten li {
+        float: left;
+        width: 55px;
+        text-align: center;
+        /*border-right-width: 1px;
+border-right-style: solid;*/
+    }
+
+.W_f18 {
+    font-size: 18px;
+}
+
+.clearfix {
+    display: block;
+}
+
+.fn-clear {
+    zoom: 1;
+}
+
+.S_line1 {
+    text-align: center;
+    border-color: #d9d9d9;
+    cursor: pointer;
+}
+
+    .S_line1 a:hover {
+    }
+
+.user_atten li a {
+    display: block;
+}
+    /*
+.user_atten li a:link{
+color:#000;
+}
+.user_atten li a:visited{
+color:#000;
+}
+.user_atten li a:hover{
+    
+}
+.user_atten li a:active{
+color:#000;
+}
+
+*/
+    .user_atten li a strong {
+        display: block;
+        font-weight: bold;
+        line-height: 18px;
+        overflow: hidden;
+    }
+
+    .user_atten li a span {
+        color: #333;
+    }
+
+.user_atten li .S_txt2 {
+    display: block;
+    font-size: 12px;
+}
+
+.f-item .f-op-wrap {
+    background-color: rgba(57,46,92,.5);
+}
+
+
+.fs-emoji-cookie {
+    position: absolute;
+    width: 390px;
+    /*height: 119px;*/
+    z-index: 2000;
+    background: #FFF;
+    border: 1px solid #D8D8D8;
+    overflow: hidden;
+}
+
+
+
+    .fs-emoji-cookie .cookie-items .item {
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+        cursor: pointer;
+        float: left;
+        padding: 3px 2px 2px 3px;
+        border-right: 1px solid #EBEFF2;
+        border-bottom: 1px solid #EBEFF2;
+    }
+
+.a_button {
+    margin: 0;
+    padding: 2px;
+    height: 20px;
+    border: 1px solid gray;
+    display: inline-block;
+    cursor: pointer;
+}
+
+    .a_button:hover {
+        border: 1px solid #277fc2;
+    }
+
+.absmask {
+    width: 600px;
+    min-height: 350px;
+    max-height: 500px;
+    left: 60%;
+    top: 25%;
+    margin-left: -465px;
+    background: #fff;
+    border: 2px solid #dcdcdc;
+    box-shadow: 0px 0px 3px #aaa;
+    position: absolute;
+    z-index: 9999;
+}
+
+
+.sabsmask {
+    width: 300px;
+    min-height: 100px;
+    left: 68%;
+    top: 25%;
+    margin-left: -465px;
+    background: #fff;
+    border: 2px solid #dcdcdc;
+    box-shadow: 0px 0px 3px #aaa;
+    position: fixed;
+    z-index: 9999;
+}
+
+.absmasker {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    overflow: auto;
+    background: rgb(229, 229, 229);
+    background: rgba(229, 229, 229, 0.75);
+}
+
+.absmask_txt {
+    line-height: 16px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.closeimg {
+    /*position: absolute;
+cursor: pointer;
+cursor: move;
+z-index: 99999;*/
+    display: block;
+    background-color: #5ABAEC;
+    /*background-image: url(../Images/topbg.png);*/
+    background-repeat: repeat-x;
+}
+
+.web_search_s {
+    height: 25px;
+    width: 160px;
+    display: inline-block;
+    position: relative;
+}
+
+    .web_search_s .pos {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 22px;
+        height: 25px;
+        border: none;
+        /*border: 1px solid gray;*/
+        background: url("../Images/icons_min.png") no-repeat;
+        background-position: -27px -98px;
+        cursor: help;
+    }
+
+.web_search {
+    padding: 5px 5px;
+    border-bottom: 1px #d9d9d9 solid;
+}
+
+.web_close {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+    .web_close:hover {
+        border: 1px solid #ccc;
+        background: #fa7d3c;
+        margin: 0;
+        padding: 0;
+    }
+
+#taklSearch .inputBox {
+    /*margin: 0 0 0 25px;
+    height: 25px;*/
+}
+
+/**收缩菜单**/
+
+.subNavBox {
+    height: 350px;
+    border: solid 1px #e5e3da;
+    overflow: auto;
+    /*margin: 5px;width: 160px;
+border: solid 1px #e5e3da;
+margin: 5px;*/
+}
+
+.subNav {
+    border-bottom: solid 1px #e5e3da;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    color: #999;
+    line-height: 28px;
+    padding-left: 10px;
+    background: url(../Images/jiantou1.jpg) no-repeat;
+    background-position: 95% 50%;
+}
+
+    .subNav:hover {
+        color: #277fc2;
+    }
+
+.currentDd {
+    color: #277fc2;
+}
+
+.currentDt {
+    background-image: url(../Images/jiantou.jpg);
+}
+
+.navContent {
+    display: none;
+    border-bottom: solid 1px #e5e3da;
+}
+
+    .navContent > li > a {
+        /*display: block;
+        width: 160px;
+        height: 28px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 28px;
+        color: #333;*/
+    }
+
+    .navContent li a:hover {
+        /*color: #fff;
+        background-color: #277fc2;*/
+    }
+
+
+.navContent {
+    display: none;
+    border-bottom: solid 1px #e5e3da;
+}
+
+    .navContent li {
+        padding: 5px 10px;
+        overflow: hidden;
+        margin:0;
+        border-color: #ccc;
+        position: relative;
+    border-top: 1px solid #e3e3e3;
+    line-height: 100%;
+    cursor: pointer;
+    background: #f1f1f1;
+    background: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f1f1f1));
+    background: -webkit-linear-gradient(white,#f1f1f1);
+    background: -moz-linear-gradient(white,#f1f1f1);
+    background: -ms-linear-gradient(white,#f1f1f1);
+    background: -o-linear-gradient(white,#f1f1f1);
+    background: linear-gradient(#fff,#f1f1f1);
+    }
+
+        .navContent li:hover {
+            /*background: #f2f4f8;*/
+            background-color: rgba(245, 229, 120, 0.73);
+            border: 1px solid #ccc;
+        }
+
+        .navContent li a {
+            width: 155px;
+            height: 28px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 28px;
+            margin: 0 0 0 5px;
+            color: #333;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+
+        .navContent li img {
+            display: inline-block;
+            vertical-align: middle;
+            max-height: 30px;
+            max-width: 30px;
+            font-size: 0;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .IMmsgBtnSend{
+            padding: 6px 10px!important;
+            display: block!important;
+            padding: .57em 10px;
+            width: auto;
+            font-size: 14px;
+            position: relative;
+            border: 1px solid;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            /* padding: .75em 12px; */
+            /* width: 100%; */
+            font-family: '微软雅黑','Helvetica Neue',Helvetica,Arial,sans-serif;
+            vertical-align: middle;
+            border-color: #044062;
+            background: #396b9e;
+            background: -webkit-gradient(linear,left top,left bottom,from(#5f9cc5),to(#396b9e));
+            background: -webkit-linear-gradient(top,#EEF7FD,#B9D6F5);
+            background: -moz-linear-gradient(top,#5f9cc5,#396b9e);
+            background: -ms-linear-gradient(top,#5f9cc5,#396b9e);
+            background: -o-linear-gradient(top,#5f9cc5,#396b9e);
+            background: linear-gradient(top,#5f9cc5,#396b9e);
+            -webkit-text-shadow: 0 1px 1px #194b7e;
+            -moz-text-shadow: 0 1px 1px #194b7e;
+            text-shadow: 0 1px 1px #194b7e;
+        }
+
+        img,object{
+            max-width:100%;
+            _width:100%;
+            -ms-interpolation-mode:bicubic;
+        }
+@media screen and (max-device-width:1024px) {
+    .contentBox{
+        width:99%;
+    }
+}

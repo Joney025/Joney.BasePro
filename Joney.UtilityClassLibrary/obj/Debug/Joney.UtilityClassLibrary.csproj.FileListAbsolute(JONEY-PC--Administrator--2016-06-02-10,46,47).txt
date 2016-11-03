@@ -1,0 +1,15 @@
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\Joney.UtilityClassLibrary.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\Joney.UtilityClassLibrary.pdb
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\log4net.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\Newtonsoft.Json.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\NPOI.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\NPOI.OOXML.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\NPOI.OpenXml4Net.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\NPOI.OpenXmlFormats.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\NPOI.xml
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\NPOI.OOXML.xml
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\bin\Debug\NPOI.OpenXml4Net.xml
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\obj\Debug\Joney.UtilityClassLibrary.csprojResolveAssemblyReference.cache
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\obj\Debug\Joney.UtilityClassLibrary.dll
+F:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.UtilityClassLibrary\obj\Debug\Joney.UtilityClassLibrary.pdb

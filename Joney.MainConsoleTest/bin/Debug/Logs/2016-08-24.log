@@ -1,0 +1,49 @@
+
+ 
+记录时间: 2016-08-24 14:49:51,487 
+线程ID: [10] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/8/24 14:49:51 
+
+ 
+记录时间: 2016-08-24 14:52:58,170 
+线程ID: [8] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/8/24 14:52:58 
+
+ 
+记录时间: 2016-08-24 14:56:41,672 
+线程ID: [8] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/8/24 14:56:41 
+
+ 
+记录时间: 2016-08-24 14:57:13,802 
+线程ID: [10] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/8/24 14:57:13 
+
+ 
+记录时间: 2016-08-24 14:58:03,522 
+线程ID: [9] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/8/24 14:58:03 
+
+ 
+记录时间: 2016-08-24 14:58:26,351 
+线程ID: [9] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/8/24 14:58:26 
+
+ 
+记录时间: 2016-08-24 14:59:02,136 
+线程ID: [9] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: Test Begin：2016/8/24 14:59:02 

@@ -1,0 +1,15 @@
+G:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.ModelsFactory\bin\Debug\Joney.ModelsFactory.dll
+G:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.ModelsFactory\bin\Debug\Joney.ModelsFactory.pdb
+G:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.dll
+G:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.pdb
+G:\WorkPlace\百度云同步盘\项目\JoneyBaseProFrame\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.csprojResolveAssemblyReference.cache
+F:\WorkRoot\Joney.BasePro\Joney.ModelsFactory\bin\Debug\Joney.ModelsFactory.dll
+F:\WorkRoot\Joney.BasePro\Joney.ModelsFactory\bin\Debug\Joney.ModelsFactory.pdb
+F:\WorkRoot\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.csprojResolveAssemblyReference.cache
+F:\WorkRoot\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.dll
+F:\WorkRoot\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.pdb
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\bin\Debug\Joney.ModelsFactory.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\bin\Debug\Joney.ModelsFactory.pdb
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.csprojResolveAssemblyReference.cache
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\obj\Debug\Joney.ModelsFactory.pdb

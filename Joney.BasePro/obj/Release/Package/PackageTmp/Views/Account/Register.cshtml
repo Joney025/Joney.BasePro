@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+    var imgStr=ViewData["ImgPreview"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+    <title>Register</title>
+    <style>
+        .subForm ul{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        .subForm ul li{
+            margin:5px;
+            padding:0;
+        }
+        .subForm input{
+            height:30px;
+            padding:0 0 0 5px;
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="subForm"> 
+        @using (Html.BeginForm("RegistUser", "Account",FormMethod.Post,new { id="myTestForm",@class="regForm",@enctype= "multipart/form-data" }))
+        {
+            <ul>
+                <li>
+                    <input type="text" id="UserName" name="UserName" value="" placeholder="用户名称" />
+                    @Html.ValidationMessage("UserName")
+                </li>
+                <li>
+                    <input type="password" id="Password" name="Password" value="" placeholder="登录密码" />
+                    @Html.ValidationMessage("Password")
+                </li>
+                <li>
+                    <input type="password" id="Password2" name="Password2" value="" placeholder="确认密码" />
+                    @Html.ValidationMessage("Password2")
+                </li>
+                <li>
+                    <label>头像：</label><input type="file" id="upImg" name="upImg"/>
+                </li>
+                <li>
+                    <input type="button" id="filePick" value="select file"/>
+                    <input type="button" id="fileUpSubmit" value="upload file" />
+                    <input type="submit" id="btnSubmit" value="Submit"/>
+
+                </li>
+                <li>
+                    <span id="sothing"></span>
+                    @Html.ValidationMessage("MSG")
+                </li>
+                <li>
+                    <div id="imgPreBlock"></div>
+                </li>
+            </ul>
+            
+        }
+    </div>
+    @Html.Partial("_JSBlock")
+    <script>
+        $(function () {
+            if ('@imgStr' != '') {
+                var imgElement = "<img src='data:image/png;"+'@imgStr'+"' alt=''>";
+                $("#imgPreBlock").append(imgElement);
+            }
+            $("#filePick").click(function () {
+                $("#upImg")[0].click(); 
+            });
+            $("#fileUpSubmit").click(function () {
+                $("#btnSubmit")[0].click();
+            });
+            $("#upImg").change(function () {
+                $("#btnSubmit")[0].click();
+            });
+            var formOp = {
+                target: '#sothing',
+                //url: '',
+                //type: '',
+                //dataType: '',
+                //clearForm:true,
+                //resetForm: true,
+                //iframe: '',
+                //beforeSerialize:function($form,options){}
+                beforeSubmit: function (e) {
+                    console.log(e);
+                },
+                success: function (e) { console.log(e); },
+                error: function (e) { console.log(e); }
+            };
+            //1
+            //$("#myTestForm").ajaxForm(formOp).submit(function () {
+            //    return false;
+            //});
+            //2
+            $("#myTestForm").submit(function (e) {
+                //e.preventDefault();
+                $(this).ajaxSubmit(formOp);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

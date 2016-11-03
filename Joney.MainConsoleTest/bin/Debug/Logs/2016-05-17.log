@@ -1,0 +1,14 @@
+
+ 
+记录时间: 2016-05-17 10:09:57,454 
+线程ID: [1] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: 日志测试：2016/5/17 10:09:57 
+
+ 
+记录时间: 2016-05-17 10:23:12,838 
+线程ID: [9] 
+日志级别: INFO  
+信息类: Joney.MainConsoleTest.Program property: [(null)] - 
+信息描述: 日志测试：2016/5/17 10:23:12 

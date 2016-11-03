@@ -1,0 +1,671 @@
+﻿@{
+    ViewBag.Title = "My Test Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html ng-app="DevAngular">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Access-Control-Allow-Origin" content="*" />
+    <title>@ViewBag.Title</title>
+    <!-- IE8及以下支持JSON -->
+    <!--[if lt IE 9]>
+        <script src="@Url.Content("~/Scripts/jquery-1.8.2.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/html5.js")"></script>
+        <script src="@Url.Content("~/Scripts/css3-mediaqueries.js")"></script>
+    <![endif]-->
+    <script src="~/Scripts/angular.js"></script>
+    <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.js"></script>
+    <link type="text/css" rel="stylesheet" media="screen and (max-device-width:500px)" href="~/Content/index.css"/>
+    <link type="text/css" rel="stylesheet" media="screen and (min-device-width:501px) and (max-device-width:1024px)" href="~/Content/font.css"/>
+    <link type="text/css" rel="stylesheet" media="screen and (min-device-width:1024px)" href="~/Content/Site.css" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <script language="javascript">
+
+        $(function () {
+            $("#nav-menu li.hasc").mouseover(function (e) {
+                $(this).siblings().find(".navbar-collapse").hide();
+                $(this).find(".navbar-collapse").show().slideDown(300);
+            }).mouseleave(function (e) {
+                $(".navbar-collapse").slideUp(100);
+            });
+        });
+        //Angular JS Test:
+        var myModule = angular.module("DevAngular", []);
+        myModule.controller("myModular", ['$scope', function HelloAngular($scope) {
+            $scope.greeting = {code:'Joney say:'};
+        }]);
+        myModule.directive("version", function () {
+            return {
+                restrict: 'E',
+                template: '<p>Copyright:joney@2016</p>',
+                replace:true
+            }
+        });
+    </script>
+    <style type="text/css">
+        header {
+            z-index: 999;
+        }
+
+        .footer {
+            height: 60px;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+            .footer a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+                .footer a:link {
+                    color: #fff;
+                }
+
+                .footer a:visited {
+                    color: #fff;
+                }
+
+                .footer a:hover {
+                    color: #fff;
+                }
+
+                .footer a:active {
+                    color: #fff;
+                }
+
+            .footer h1 {
+                line-height: 20px;
+                height: 20px;
+                margin: 10px;
+                padding: 0;
+            }
+
+            .footer h2 {
+                line-height: 20px;
+                height: 20px;
+                margin: 10px;
+                padding: 0;
+            }
+
+            .footer h3 {
+                line-height: 20px;
+                height: 20px;
+                margin: 10px;
+                padding: 0;
+            }
+
+        .left-nav {
+            width: 295px;
+            float: left;
+            margin: 0;
+            padding: 0;
+            min-height: 600px;
+        }
+
+        .right-container {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 8px #ccc;
+            margin:0 0 0 295px;
+            padding: 10px;
+            min-height: 600px;
+            background-color: #fff;
+        }
+
+            .right-container .docm p {
+                padding: 0 0 10px;
+                text-indent: 2em;
+            }
+
+        .docm h2 {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .docm h3 {
+            font-size: 18px;
+        }
+
+        .nav-list {
+            margin-left: 250px;
+            border: 1px solid #ccc;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 8px #ccc;
+            background-color: #fff;
+        }
+
+            .nav-list > ul {
+                display: inline-block;
+                list-style: none;
+            }
+
+                .nav-list > ul > li {
+                    list-style: none;
+                    display: block;
+                    width: 250px;
+                    margin: 2px;
+                    padding: 0;
+                    height: 25px;
+                    line-height: 25px;
+                }
+
+                    .nav-list > ul > li a {
+                        color: #464646;
+                        float: left;
+                        margin-left: 10px;
+                        display: block;
+                        height: 18px;
+                        line-height: 35px;
+                        cursor: pointer;
+                    }
+
+                        .nav-list > ul > li a:hover {
+                            text-decoration: underline;
+                            color: red;
+                        }
+
+        .left-nav li em {
+            float: left;
+            background: #4a4a4a;
+            display: inline;
+            width: 15px;
+            height: 15px;
+            text-align: center;
+            line-height: 14px;
+            color: #fff;
+            font-style: normal;
+            margin-top: 6px;
+            padding: 2px;
+        }
+
+        .left-nav li:nth-child(1) em {
+            background: #D47431;
+        }
+
+        .left-nav li:nth-child(2) em {
+            background: #3197d4;
+        }
+
+        .left-nav li:nth-child(3) em {
+            background: #8DB38F;
+        }
+
+        .nav-head {
+            width: 270px;
+            height: 30px;
+            padding: 5px 10px;
+            border-bottom: 1px solid #3197D4;
+            position: relative;
+            background-color: #fff;
+        }
+
+            .nav-head:after {
+                content: '';
+                width: 5px;
+                height: 5px;
+                transform: rotate(45deg);
+                border-top: none;
+                border-left: none;
+                border-right: 1px solid #3197D4;
+                border-bottom: 1px solid #3197D4;
+                position: absolute;
+                top: 38px;
+                left: 50px;
+                background-color: #fff;
+            }
+
+            .nav-head h2 {
+                display: inline-block;
+                font: 20px/36px "微软雅黑","黑体";
+            }
+
+                .nav-head h2 span {
+                    color: #0d70a6;
+                    font: 20px/36px "微软雅黑","黑体";
+                }
+
+            .nav-head > div {
+                display: inline-block;
+                float: right;
+            }
+
+                .nav-head > div > span {
+                    float: right;
+                    margin-left: 1px;
+                    cursor: default;
+                    background: #e5e5e5;
+                    width: 59px;
+                    height: 22px;
+                    text-align: center;
+                    line-height: 22px;
+                    font-size: 14px;
+                    font-family: "微软雅黑";
+                    color: #1c1c1c;
+                    margin: 7px 1px 0 0;
+                }
+
+                    .nav-head > div > span:hover {
+                        background: #ECC44A;
+                    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <nav>
+                <div class="navbar-header">
+                    <div class="logo">@Html.ActionLink("Joney's Zone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</div>
+                    <ul id="nav-menu" class="nav navbar-nav">
+                        <li><span></span>@Html.ActionLink("Index", "Index", "Home")</li>
+                        <li><span></span>@Html.ActionLink("Documents", "Documents", "Home")</li>
+                        <li><span></span>@Html.ActionLink("About", "About", "Home")</li>
+                        <li><span></span>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li class="hasc">
+                            <span></span><a href="javascript:">Test Demo</a>
+                            <ul class="navbar-collapse">
+                                <li>@Html.ActionLink("Demo Uploader", "FilePreview", "Home", new { id = "alink_a", title = "test", @class = "txtCs" })</li>
+                                <li>@Html.ActionLink("WebUploader", "WebUploader", "Home", new { id = "alink_b", title = "test", @class = "txtCs" })</li>
+                                <li>@Html.ActionLink("FilesTreeView", "FilesTreeView", "Home", new { id = "alink_c", title = "test", @class = "txtCs" })</li>
+                                <li>@Html.ActionLink("FlowWork", "Flowwork", "Manage", new { id = "alink_c", title = "test", @class = "txtCs" })</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="nav navbar-text navbar-right">Welcome，@User.Identity.Name!</p>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="left-nav">
+                <div class="nav-head">
+                    <h2>博文<span>日记</span></h2>
+                    <div>
+                        <span>最近</span>
+                        <span>本周</span>
+                        <span>本月</span>
+                    </div>
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li><em>1</em><a>英雄总有出处</a></li>
+                        <li><em>2</em><a>英雄总有出处</a></li>
+                        <li><em>3</em><a>英雄总有出处</a></li>
+                        <li><em>4</em><a>英雄总有出处</a></li>
+                        <li><em>5</em><a>英雄总有出处</a></li>
+                        <li><em>6</em><a>英雄总有出处</a></li>
+                        <li><em>7</em><a>英雄总有出处</a></li>
+                        <li><em>8</em><a>英雄总有出处</a></li>
+                        <li><em>9</em><a>英雄总有出处</a></li>
+                        <li><em>10</em><a>英雄总有出处</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="docm">
+                    <h2>Photoshop新手必看的120条实用技巧</h2>
+                    <p>
+                        Photoshop越来越强大了！试图掌控它的全部特性是不现实的（更何况有那么多隐藏的功能！），那么我们不妨收藏一下大神们总结的这120个PS技巧，偶尔翻看一下，让自己的设计更强大更高效！<br />
+                        这120款技巧覆盖了PS绝大多数的主要功能，这些功能你很熟悉，但是明白它们的细节，掌控发招的捷径，修图作画的时候说不定能收获奇效呢！
+                    </p>
+                    <h3>01、旋转样式</h3>
+                    <p>
+                        Cmd/Ctrl+Shift+Alt+T 是一个神奇的快捷键，可以帮你制作出惊人的万花筒图案，当你使用它的时候，可以复制当前图层，并且同时重复之前的旋转、放大等操作。正如下图所演示，使用这一快捷键可以轻松地将一束炫光化作一个漂亮的万花筒。在操作的时候，你先用Cmd/Ctrl+T和适当的旋转，回车确定，然后使用这组快捷键，直到完成整个样式。
+                    </p>
+                    <h3>02.让图片覆盖在文字上</h3>
+                    <p>
+                        其实这就是剪切蒙板的功能，但是有一种更简单的处理方式：将图片图层置于文字图层的正上方，按住Alt键，单击两个图层之间的线，就搞定了！
+                    </p>
+                    <h3>03.俯瞰图</h3>
+                    <p>
+                        当你放大图片细节的时候，你只需要按住H键，滑动鼠标就能看到整个俯瞰图，这时候你可以看到光标处变为一个小方框，那就是你正在处理的部分。拖动方框到其他的区域，松开H键，你就会切换到光标所在的区域，超级方便！
+                    </p>
+                    <h3>04. 快速全图层蒙板</h3>
+                    <p>
+                        当你按住Alt键然后点击图层蒙板按钮的时候，就能创建一个盖住所有内容的蒙板。
+                    </p>
+                    <h3>05. 更方便的选取框选择</h3>
+                    <p>
+                        当你按住Alt按键的时候，选择任意选框工具拉出来的选框都会以你光标最初所在的地方为中心而选择。
+                    </p><h3>06. 调整PS默认背景色</h3>
+                    <p>
+                        很少有人会主动去调整PS的背景色深灰色，如果你想快速替换背景色的话，选择油漆桶工具，按住Shift点击背景，就可以将其替换成前景色了！想恢复默认，在背景处右键，选择默认就好了！
+                    </p><h3>07.1000条历史记录</h3>
+                    <p>
+                        历史记录条目不够用？简单！在菜单栏中选择中选择 编辑->首选项->性能 ，然后你就可以将历史记录的数目调整成为1000了！当然，这么设置之后会影响电脑的性能。硬盘小、性能不佳的电脑，请一定要小心处理。
+                    </p><h3>08.图层颜色标识</h3>
+                    <p>
+                        使用颜色来整理图层是一个不错的选择，在图层面板的眼睛处右键，可以用颜色来标识图层，然后你可以根据颜色来管理图层。
+                    </p><h3>09.关闭所有文档</h3>
+                    <p>
+                        想一次关闭多个文档，按住Shift按键，点击任何窗口的关闭按钮就可以了。
+                    </p><h3>10.临时切换移动工具</h3>
+                    <p>
+                        不管你正在使用什么工具，按住Cmd/Ctrl就可以临时切换成移动工具，松开按键又可以恢复之前的工具。
+                    </p><h3>11.交互式缩放</h3>
+                    <p>
+                        按住Cmd/Ctrl+空格 按键（虽然会切换输入法，但是没有影响），移动鼠标就可以快速缩放，向左滑动缩小，向右滑动放大，缩放以鼠标光标的初始位置和中心。
+                    </p><h3>12.快速制作图层副本</h3>
+                    <p>
+                        按住Cmd+Alt按键，拖动任何图层就可以轻松复制图层。
+                    </p><h3>13.分散效果</h3>
+                    <p>
+                        扩散亮光滤镜可以让图像呈现出柔软飘逸的感觉，尤其是当你你调低饱和度之后。单击D让色彩复位之后，在菜单 滤镜->扭曲->扩散亮光 或者在 滤镜->滤镜库 当中找到这个隐藏的滤镜，然后Cmd/Ctrl+U 快速调出调节饱和度的面板，调整饱和度。
+                    </p><h3>14.撤销！撤销！撤销！</h3>
+                    <p>
+                        你知道Cmd/Ctrl+Z是撤销的快捷键，但是要一直往后撤销，你需要使用 Cmd/Ctrl+Alt+Z。
+                    </p><h3>15. 循环调整混合模式</h3>
+                    <p>
+                        如果你未曾调整默认快捷键设置的话，使用Shift配合+、-按键可以从头到尾快速调整混合模式，来回循环调整，直到找到图层需要的效果。
+                    </p><h2>常用快捷键合集(16 – 43)</h2>
+                    <p>
+                        Cmd/Ctrl+Shift+Alt+E 合并所有图层的副本<br />
+                        F 可以快速切换背景显示模式<br />
+                        X 可以快速切换前景色和背景色<br />
+                        D 这个快捷键可以快速恢复前景色和背景色为默认的黑白色<br />
+                        ] 和 [ 快速切换笔刷的大小<br />
+                        Cmd/Ctrl+J 快速复制图层<br />
+                        空格键 按住空格键可以快速上下左右拖动整个图像<br />
+                        TAB键 快速隐藏所有的工具和面板<br />
+                        Cmd/Ctrl+T 变换图层，让其可编辑<br />
+                        Cmd/Ctrl+E 合并所选图层<br />
+                        Cmd/Ctrl/Ctrl+Shift+Opt+S 储存为Web格式（经常设计网页的朋友应该常常用这个快捷键吧？）<br />
+                        Cmd/Ctrl+L 调整色阶<br />
+                        Cmd/Ctrl+T 打开自由变换工具<br />
+                        Cmd/Ctrl+M 打开曲线工具<br />
+                        Cmd/Ctrl+B 调整色彩平衡<br />
+                        Cmd/Ctrl+Shift+Opt+C 缩放图片至你预设的状态<br />
+                        Cmd/Ctrl+Opt+G 创建剪切蒙板<br />
+                        Cmd/Ctrl+0 让图像适应屏幕<br />
+                        Cmd/Ctrl+Shift+>/< 这个快捷键可以让你所选的文本以2pt的间隔缩放<br />
+                        Cmd/Ctrl+Option+Shift->/< 可以让你所选的文本以10pt的间隔缩放大小<br />
+                        Shift+F5 填充选区 Fill the selection<br />
+                        }/{ 增减笔刷硬度<br />
+                        ,/. 切换笔刷<br />
+                        切换第一个和最后一个笔刷<br />
+                        Cmd/Ctrl+] 让图层位置上移<br />
+                        Cmd/Ctrl+[ 让图层位置下移<br />
+                        Cmd/Ctrl+Shift+[ 将图层置于底层<br />
+                        Cmd/Ctrl+Shift+] 将图层置于顶层<br />
+                    </p><h2>图层控制技巧</h2>
+                    <h3>44.转换图层样式</h3>
+                    <p>
+                        将图层转换成普通的以像素为单位的图层，让你可以更容易地控制内容。你可以为一个图层增加混合效果，然后你在混合效果上右键，选择“创建图层”，然后特效就会成为一个单独图层，更方便管理。
+                    </p><h3>45.查看一个图层</h3>
+                    <p>
+                        这是一个常识性的技巧。当你要查看某个特定图层的时候，点击其他图层前面的眼睛，隐藏它们，然后就可以查看可见的那唯一的图层了。
+                    </p><h3>46.翻转图层蒙板</h3>
+                    <p>
+                        在针对图层进行调整之后，点击Cmd/Ctrl+I 翻转图层蒙板并快速隐藏效果，然后在图片表面涂上白色，这样就可以显示出调整过的部分了。
+                    </p><h3>47.取消图层和蒙板之间的链接</h3>
+                    <p>
+                        其实这个技巧也很简单，你只需要在图层面板中单击图层和蒙板之间的链接图标就可以接触链接关系，用鼠标选中你要移动的部分的缩略图，将其移动到一起的地方就好了。
+                    </p><h3>48.快速复制</h3>
+                    <p>
+                        按住Alt键，拖动你要复制的图层，就搞定了~
+                    </p><h3>49. 转换背景</h3>
+                    <p>
+                        双击背景图层，只需要单击“确定”就可以解除锁定状态，然后你就可以编辑它了。
+                    </p><h3>50. 调整图层</h3>
+                    <p>
+                        多数时候大家会直接编辑某个图层，但是很多时候图片处理毁了而又回不去了。当然，一种笨办法是将原图层复制一份以备不测。但是还有更好的方法：新建调整图层。选中要编辑的图层，点击底部的半黑半白的圆形图标，就可以新建调整图层了。不管你怎么编辑这个图层，原图都不会有影响。当然，你还可以通过菜单 图层->新建调整图层 来完成这一过程。
+                    </p><h3>51.移动图层列表</h3>
+                    <p>
+                        这也是一个小技巧，当你使用移动工具的时候，在图片某一点上点击右键，就能看到这一点上存在的所有图层，然后你可以选中你要选择的图标。
+                    </p><h3>52.面板选项</h3>
+                    <p>
+                        图层面板是PS中最重要的组件之一，你需要将其设置得顺手（或者你已经适应了默认的设置？）。点击右上角的菜单按钮会有弹出菜单，合理设置，让它更加好用。
+                    </p><h3>53.上下移动图层</h3>
+                    <p>
+                        使用上下拖拽图层是大家都习惯的方式，键盘党的选择通常是快捷键：Cmd/Ctrl+]/[ ，鼠标和快捷键的组合会快很多。
+                    </p><h3>54.填充快捷键</h3>
+                    <p>
+                        你可以使用Opt/Alt+ Backspace 按键来为某个图层填充上前景色，使用Cmd/Ctrl+Backspace 填充背景色，如果你想仔细设置的话，使用Shift+Backspace快捷键调出填充控制面板。
+                    </p><h3>55.50%灰度的图层</h3>
+                    <p>
+                        在很多时候，新建一个有50%灰度的图层是很有用的。这个图层可以轻易的减淡或者加深，添加纹理或者光晕，可以以非破坏式的方式优化图像，新建一个图层，然后选择 编辑->填充 ，然后设置混合模式为叠加。
+                    </p><h3>56.图层组快捷键</h3>
+                    <p>
+                        图层组是非常有用的，不过你并不一定非地去点击图层组图标去新建，然后将图层移进去。你只需要选中需要成组的图层，然后拖拽到这个图标上就好了，快捷键也是不错的选择：Cmd/Ctrl+G。
+                    </p><h3>57.编辑多个文本图层</h3>
+                    <p>
+                        经常编辑文本图层的同学应该知道文本工具菜单栏最右边的按钮可以调出字符设置面板，所以当你要一次调整多个文本图层的时候，就只需要按住Cmd/Ctrl 选中多个文本图层，然后在字符设置面板中一次搞定多个图层的设置。
+                    </p><h3>58. 图层蒙板视图</h3>
+                    <p>
+                        按住Alt/Opt按键，然后点击某个蒙板的缩略图，然后就可以图像视图和蒙板视图之间来回切换，按住Shift按键这么操作则可以启用或者关闭蒙板。
+                    </p><h3>59. 选择相似图层</h3>
+                    <p>
+                        这是用来帮你选择同类型图层的，比如选中全部的形状图层或者文本图层，你需要做的就是进入菜单，选择->选取相似 就可以了！
+                    </p><h3>60. 更改透明度</h3>
+                    <p>
+                        当你不适用画笔工具的时候，你可以使用数字键快速设置图层的透明度，数字1就是10%，数字5是50%，数字0是100%。
+                    </p><h3>61. 快速调用笔刷</h3>
+                    <p>
+                        快速打开笔刷面板的快捷键是F5。
+                    </p><h3>62. 混合火焰效果</h3>
+                    <p>
+                        A: 复制火焰<br />
+                        打开一个人物肖像图片和一个普通的火焰图片，使用移动工具，使用自动选择图层，并且显示变换控件。将火焰图片拖放到肖像图片上，模式选择混合模式。<br />
+                        B: 位置和扭曲<br />
+                        单击边款，改变火焰的图层，调整大小，旋转，定位。在调整状态下，鼠标右键点击调出菜单，选择“扭曲”，调整火焰姿态。使用快捷键Cmd/Ctrl+J 复制图层，通过叠加图层调整效果。
+                    </p><h3>63. 使用右键选择更多功能</h3>
+                    <p>
+                        为了保证PS的易用性，绝大多数的PS工具在使用过程中，可以通过右键调用更多的功能。当然，有人喜欢用快捷键，有人喜欢调整顶部菜单或者侧边栏，但是如果你喜欢使用鼠标的话，这是不二选择。
+                    </p><h3>64. 快速导航</h3>
+                    <p>
+                        虽然很多时候我们知道有快捷键，但是很少会有意识地使用。比如快速缩放可以使用Cmd/Ctrl配合+/-按键，而快速拖放图像按住空格键就可以了。
+                    </p><h3>65.至关重要的选区快捷键</h3>
+                    <p>
+                        这也是个很实用的小技巧，在使用任何选区工具的时候，按住Shift可以选更多选区，按住Alt/Opt 可以去除部分已经选取的区域，同时按住，Shift和Alt/Opt可以让选区相交。
+                    </p><h3>66. 粘贴到位</h3>
+                    <p>
+                        当你剪切粘贴的时候，PS默认会将粘贴的新图层置于整个视图的中央位置。可如果你想将一个图层粘贴到之前对应的位置，可以使用Cmd/Ctrl+Shift+V来粘贴。同理，如果你想将一个图层拖到另一个PSD文件的相同位置，按住Shift拖放就好了。
+                    </p><h3>67.隐藏辅助线</h3>
+                    <p>
+                        使用Cmd/Ctrl+H来隐藏辅助线和可编辑的边缘，让你可以直接看图像效果不受干扰。
+                    </p><h3>68.好用的Cmd/Ctrl+点击</h3>
+                    <p>
+                        使用这个快捷键点击任何的图片缩略图、蒙板、路径可以让你快速地将它们的形状所在区域变成选区。
+                    </p><h3>69. 切换套索</h3>
+                    <p>
+                        当你使用套索工具的时候，按住Alt/opt然后释放鼠标按键的时候，可以临时切换成为多边形套索工具。
+                    </p><h3>70.固定比例选区</h3>
+                    <p>
+                        大家可能没有太注意这个功能，在矩形选区工具的菜单栏里面，你可以设置选区的比例来，这样你拉出来的选区可以按照特定的比例来选取。这在制作特定比例的背景图的时候非常有用。
+                    </p><h3>71.选区变换</h3>
+                    <p>
+                        其实选区可以如同图层一样变换，你可以使用 选择->变换选区 来调用这一功能，也可以直接用鼠标右键点击选区，然后选择“扭曲”或者“倾斜”等等。
+                    </p><h3>72.钢笔工具橡皮带</h3>
+                    <p>
+                        即使对于许多经验老到的设计师而言，钢笔工具和贝塞尔曲线也是令人头疼的东西，因为很多时候并不清楚下一个锚点点下之后，曲线会怎么变化！所以这条技巧很重要：切换到钢笔工具，在顶部菜单栏上，自动添加/删除 按钮左侧，有个小齿轮，选中“橡皮带”选框，接着你就可以看清曲线的变化趋势，作出最好的选择了。
+                    </p><h3>73.非破坏性裁剪</h3>
+                    <p>
+                        裁剪工具有个不为人知的功能，就是隐藏裁剪区域而非删除。在顶部菜单栏中齿轮按键中有更多选项，你可以看到“启用裁剪隐蔽”选项。通过这个，你可以随时控制裁剪框和实际裁剪大小。
+                        <h2>钢笔工具使用技巧</h2>
+
+                    </p><h3>74.调整锚点位置</h3>
+                    <p>
+                        当你使用钢笔工具的过程中，按住Cmd/Ctrl按键，可以临时切换到“白箭头模式”，也就是在这个时候，你可以轻易调整锚点位置。
+                    </p><h3>75.增加锚点</h3>
+                    <p>
+                        其实这个算不上技巧，当你在使用钢笔工具描点的过程中，可以观察到贝塞尔曲线变化的样子，选择最佳的曲线路径。
+                    </p><h3>76.去掉手柄</h3>
+                    <p>
+                        通常前一个锚点的位置和曲线会影响后一个锚点于它的曲线弧度，如果你需要去除这样的影响，就需要让那个锚点成为断点，你只需要按住Alt/Opt按键，点击锚点，就好了。
+                    </p><h3>77.转化选区为路径</h3>
+                    <p>
+                        在路径的控制面板中，点击“转化工作区域为路径”的按钮就可以轻易完成这一点。
+                    </p><h3>78.增加调节手柄</h3>
+                    <p>
+                        其实这也很简单，按住Alt/opt按键，向外拖动就好了。
+                    </p><h3>79.路径选择</h3>
+                    <p>
+                        当你使用钢笔工具画出路径之后，可以右键点击路径，有更多选项，其中包括填充路径，创建选区和路径描边。
+                    </p><h3>80.磁性钢笔工具</h3>
+                    <p>
+                        很多时候钢笔描边不算好用，这个时候你可以选择“自由钢笔工具”，这个时候顶部菜单栏有个选框“磁性的”，选中之后就可以快乐地使用这个工具了！
+                    </p><h3>81. 使用通道处理图片中的天空</h3>
+                    <p>
+                        A: 复制蓝色通道<br />
+                        去通道工具窗口拖动蓝色通道到创建新通道的按钮上，复制它。点击Cmd/Ctrl+L调用色阶，拖动调整，让天空全白，而地面全黑。接下来使用画笔工具，用黑色将地面部分涂抹平整。<br />
+                        B:  调整选区<br />
+                        按住Cmd/Ctrl按钮，点击蓝色通道，选中白色的选区。回到RGB通道模式下，在图层面板中新增一个曲线调整图层，选区就自然变成一个蒙板了，调整曲线，就可以改变天空的色彩了。<br />
+                        <h2>画笔和笔刷使用技巧</h2>
+                    </p><h3>82.使用 Adobe Eazel</h3>
+                    <p>
+                        对于设计师而言，Adobe Eazel是一个有趣而又严谨的绘画工具，电脑上很难识别笔触的轻重，而在平板上借助这个软件就很容易实现了。接下来，你需要做的就是将绘画结果传输到电脑上进行后期处理。
+                    </p><h3>83.更改笔刷角度</h3>
+                    <p>
+                        圆形的笔刷你不需要考虑这个问题，但是其他角度的笔刷你可能需要调整角度。在笔刷面板中，你会注意到有一个圆环型的工具，在对称的位置上有两个白色的圆点，调整它们就可以调整角度，当然你也可以通过旁边的输入框来设置。
+                    </p><h3>84.旋转仿制源</h3>
+                    <p>
+                        这一功能的快捷键是 Shift+Alt+，调整之后的结果到底如何，在窗口中打开仿制源面板就知道了。
+                    </p><h3>85拟物化纹理</h3>
+                    <p>
+                        斜面和浮雕滤镜通常会被数字画师用来让笔触看起来像烤漆或者条纹装的图层，设置混合模式为叠加，合并图层，然后使用浮雕或者斜面滤镜，看起来就妥妥的。
+                    </p><h3>86.快速笔刷设置</h3>
+                    <p>
+                        当你使用笔刷工具的时候，按住Alt按键，鼠标点击右键就可以快速调出笔刷的当前设置，你可以看到笔刷大小、硬度和类型，这个时候你可以使用鼠标左右滑动快速调整。
+                    </p><h3>87.旋转画布</h3>
+                    <p>
+                        有时候你需要调整画布的角度来查看你制作的效果，快捷R就是用来干这个的。当你点击R之后，就可以快速而方便的选择画布了。
+                    </p><h3>88.涂抹绘画</h3>
+                    <p>
+                        有时候单纯的涂抹绘画也是一个不错的体验，你可以调用涂抹工具，将整个背景设置成灰白色调，复制多层堆叠在一起，透明度设置到13%左右，调整层数到你觉得舒适的状态，接下来你就可以安心绘画了。
+                    </p><h3>89.在图画上增加纹理</h3>
+                    <p>
+                        有时候你需要让你的图片看起来更加真实，可以通过纹理叠加的方式来增加质感。
+                        <h2>精确的色彩和线条</h2>
+
+                    </p><h3>90.画直线</h3>
+                    <p>
+                        使用笔刷工具画直线需要按住Shift键。
+                    </p><h3>91.取色</h3>
+                    <p>
+                        当你使用笔刷工具绘图的时候，按住Alt/Opt按键可以临时取色。
+                    </p><h3>92. 精确涂抹</h3>
+                    <p>
+                        按住大写锁定按键，可以让光标成为十字，精确锁定。
+                    </p><h3>93.循环切换笔刷</h3>
+                    <p>
+                        使用 , 和 . 按钮可以循环切换笔刷。
+                    </p><h3>94.减淡或者加深</h3>
+                    <p>
+
+
+                        当你使用加深工具涂抹的时候，按住Alt就可以减淡了。
+                    </p><h3>95.使用数位板和笔</h3>
+                    <p>
+                        数位板是原画师的好朋友，你可以通过数位板不受限制地发挥你的创造力。当然，使用iPad和53的Paper是个不错的工具，但是，使用Wacom的影拓5岂不是更好？
+                    </p><h3>96.调整硬度</h3>
+                    <p>
+                        你可能知道使用 ] 和 [ 按键可以快速调整笔刷大小，如果你按住Shift按键来配合 ] 和 [ 就可以调整硬度了。
+                    </p><h3>97.快速调整不透明度</h3>
+                    <p>
+                        其实调整不透明度和之前的快捷键一样，使用数字0~9来调整。1是10%，0 是100%。
+
+                    </p><h2>Adobe Camera Raw技巧</h2><h3>98.全选</h3>
+                    <p>
+                        要快速批量处理图片，就是在Adobe Camera Raw中打开（Adobe Bridge也可以），然后全选，再进行处理。你对任何图片的处理都会应用到全部。
+                    </p><h3>99.打开智能对象</h3>
+                    <p>
+                        当你在ACR中按住Shift按键的时候，打开图片按钮会编程打开对象。这个时候打开的图片都会变成智能对象。
+                    </p><h3>100.蒙板锐化</h3>
+                    <p>
+                        在详细信息面板中，调整蒙板滑块，可以调整图像区域中的锐化程度。但是你如果想更详细地掌控锐化程度的话，需要按住Alt按键。灰阶图可以帮你了解锐化程度。
+                    </p><h3>101.快速复位滑块</h3>
+                    <p>
+                        双击滑块，它会回复到0的位置。
+                    </p><h3>102.裁剪比例</h3>
+                    <p>
+                        不同的裁剪比例可以突出不同的主体。在ACR中，裁剪是非破坏性的，所以你可以尝试不同的比例。
+                    </p><h3>103.在着色之前曝光</h3>
+                    <p>
+                        在调整色彩之前调整曝光度总会让你得心应手的。
+                    </p><h3>104.调节画笔控制</h3>
+                    <p>
+                        调整画笔在ACR中，总是选择色调的最好选择。适当地使用蒙板来调整着色，使用快捷键Y来开启或者关闭蒙板查看效果。
+                    </p><h3>105.擦除蒙板</h3>
+                    <p>
+                        当你使用调节画笔工具的时候，按住Alt键可以擦除部分蒙板。
+                    </p><h3>106.调整明度</h3>
+                    <p>
+                        深黑色可以让图片更富有冲击力，你可以通过调整明度来达到这一目的。
+                    </p><h3>107.拉直视野</h3>
+                    <p>
+                        你可以按住快捷键A拉出一条直线，用作参考线，来调整照片的视野。
+                    </p><h3>108.调整视图</h3>
+                    <p>
+                        按住Alt按键来调整明度、曝光度，你可以在在图标右上角看到直方图，更精确地控制细节。
+                    </p><h3>109.全屏预览</h3>
+                    <p>
+                        点击快捷键F可以在ACR中切换到全屏模式。
+
+                    </p><h2>ACR and Bridge ACR 和 Bridge</h2><h3>110.旋转视图</h3>
+                    <p>
+                        使用快捷键Cmd/Ctrl+B就可以在PS中开启3D视图，很赞哦~
+                    </p><h3>111.粘贴ACR设置</h3>
+                    <p>
+                        你可以在Bridge中将ACR的处理过程从一个图片中应用到另外一个图片中，在Bridge中，在圆形图标上点击右键，选择 开发设置->复制设置 然后在另外一张图片上右键点击粘贴，就好了。
+                    </p><h3>112.相似图片分组堆栈</h3>
+                    <p>
+                        将相似图片整理到一组可以方便管理，按住Shift选择多个照片，然后点击菜单：堆栈->堆栈分组 实现分组功能。
+                    </p><h3>113.直接在ACR中打开</h3>
+                    <p>
+                        在windows和Mac下你都可以设置某些格式的文件默认用某个软件打开，当然，你也可以直接直接鼠标右键点击文件，然后选择用ACR打开就好了。
+                    </p><h3>114.以图层形式打开</h3>
+                    <p>
+                        你可以将一组照片以图层形式打开，你只需要点击 工具->Photoshop->加载文件 就可以了。
+
+                    </p><h2>提高画笔技能</h2><h3>116.创建画笔</h3>
+                    <p>
+                        你可以将你喜欢的某个图片定义成为画笔，打开文件后，选择 编辑->定义画笔预设 就搞定了。
+                    </p><h3>117.制作草图效果</h3>
+                    <p>
+                        如果你在将照片处理成油画效果或者要增加素描线条的话，可以通过滤镜解决，选择 滤镜-> 风格化-> 查找边缘 就可以达成目的了。
+                    </p><h3>118. 试验</h3>
+                    <p>
+                        笔刷多不胜数，要掌控它们最好的方式是新建一个文档，选择一个色彩，一个一个尝试，记录下其中你喜欢的。
+                    </p><h3>119. 进一步探究</h3>
+                    <p>
+                        在做图的时候，尽量多新建图层，在不同的图层上测试不同的技巧，使用不同的混合模式，多练习。
+
+                    </p><h3>120. Step by step: Quick brush effects 快速笔刷效果</h3>
+                    <p>
+                        A: 设置笔刷<br />
+                        选择一张常见的肖像图，然后选择一个方形笔刷，并且应用下面的设置：间距631%，大小、角度、抖动都设置为100%，散射：638%，数量抖动50%，颜色动态：前景/背景抖动20%，饱和度抖动20%，亮度30%。<br />
+                        B: 绘制蒙板和色彩<br />
+                        使用套索工具选择女孩，然后点击Shift+Backspace快捷键，选择填充（内容识别）。按住Alt按键，点击增加蒙板的按钮，将前景色设置成白色，在蒙板上涂抹，让女孩的部分图像隐藏。接下来增加一个新图层，按住Alt按键从女孩身上取色，然后涂抹颜色。之后，再新建第二个图层，绘制更大的区域，使用高斯模糊滤镜。大功告成！
+                    </p>
+                </div>
+                <a href="FilePreview">GO Next.</a>
+                <div ng-controller="myModular"><p>{{greeting.code}},that is good.</p></div>
+                <input ng-model="greeting.text"/>
+                <p>{{greeting.text}},hahaha</p>
+                <version data-val="vs2016"></version>
+            </div>
+        </div>
+        <footer>
+            <div class="footer" align="center" style="width:100%; margin:0 auto">
+                <div style="text-align:center;margin:0; font:normal 14px/20px 'MicroSoft YaHei';height:30px;line-height:30px;">
+                    <span style="width:300px;"><a href="http://www.sap360.com.cn" target="_blank">深创空间</a><a href="http://app.sap360.com.cn" target="_blank">（SAP360）</a></span>
+                    <span>|</span>
+                    <span style="color:#c0c0c0;">Copyright &copy;2014-@DateTime.Now.Year All Rights Reserved.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div style="position:fixed;top:70%;right:1%;">
+        @Html.Partial("../ClubIM/ClubIM")
+    </div>
+    <div style="position:fixed;top:50%;right:1%;">
+        @Html.Partial("../Shared/ScrollTopOrDown")
+    </div>
+</body>
+</html>

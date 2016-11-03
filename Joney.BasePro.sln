@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joney.BasePro", "Joney.BasePro\Joney.BasePro.csproj", "{76E5A308-0263-4AD4-8B96-2A21795E913A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joney.UtilityClassLibrary", "Joney.UtilityClassLibrary\Joney.UtilityClassLibrary.csproj", "{4CC9995B-FC8C-41C7-8B56-01D99F3A37FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joney.ModelsFactory", "Joney.ModelsFactory\Joney.ModelsFactory.csproj", "{BECB24BA-70C0-4D02-98AE-D9AF7AB0E800}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joney.MainConsoleTest", "Joney.MainConsoleTest\Joney.MainConsoleTest.csproj", "{74F7350D-3977-4D7D-9D6B-45425338D3B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopSdk", "Joney.TopSDK\TopSdk.csproj", "{9C11CAE5-5188-4E71-825B-68FC3135728A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joney.WebAPI", "Joney.WebAPI\Joney.WebAPI.csproj", "{A7AAA7D9-3A99-4C81-8750-40D8E19BF34F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joney.SignalRServer", "Joney.SignalRServer\Joney.SignalRServer.csproj", "{C28AE66A-29B9-485B-9958-2CA5FEA5BFD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76E5A308-0263-4AD4-8B96-2A21795E913A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E5A308-0263-4AD4-8B96-2A21795E913A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E5A308-0263-4AD4-8B96-2A21795E913A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E5A308-0263-4AD4-8B96-2A21795E913A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC9995B-FC8C-41C7-8B56-01D99F3A37FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC9995B-FC8C-41C7-8B56-01D99F3A37FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC9995B-FC8C-41C7-8B56-01D99F3A37FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC9995B-FC8C-41C7-8B56-01D99F3A37FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECB24BA-70C0-4D02-98AE-D9AF7AB0E800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECB24BA-70C0-4D02-98AE-D9AF7AB0E800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECB24BA-70C0-4D02-98AE-D9AF7AB0E800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECB24BA-70C0-4D02-98AE-D9AF7AB0E800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F7350D-3977-4D7D-9D6B-45425338D3B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F7350D-3977-4D7D-9D6B-45425338D3B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F7350D-3977-4D7D-9D6B-45425338D3B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F7350D-3977-4D7D-9D6B-45425338D3B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C11CAE5-5188-4E71-825B-68FC3135728A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7AAA7D9-3A99-4C81-8750-40D8E19BF34F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7AAA7D9-3A99-4C81-8750-40D8E19BF34F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7AAA7D9-3A99-4C81-8750-40D8E19BF34F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7AAA7D9-3A99-4C81-8750-40D8E19BF34F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C28AE66A-29B9-485B-9958-2CA5FEA5BFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C28AE66A-29B9-485B-9958-2CA5FEA5BFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C28AE66A-29B9-485B-9958-2CA5FEA5BFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C28AE66A-29B9-485B-9958-2CA5FEA5BFD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

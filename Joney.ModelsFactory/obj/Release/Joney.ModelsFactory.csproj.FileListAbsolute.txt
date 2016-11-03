@@ -1,0 +1,4 @@
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\bin\Release\Joney.ModelsFactory.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\bin\Release\Joney.ModelsFactory.pdb
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\obj\Release\Joney.ModelsFactory.dll
+F:\WorkTestDemo\Joney.BasePro\Joney.ModelsFactory\obj\Release\Joney.ModelsFactory.pdb
