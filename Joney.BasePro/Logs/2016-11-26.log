@@ -1,0 +1,7 @@
+
+ 
+记录时间: 2016-11-26 15:02:12,798 
+线程ID: [7] 
+日志级别: ERROR 
+信息类: Joney.BasePro.Models.MyFilter+ExceptionAttribut property: [(null)] - 
+信息描述: 192.168.1.54_Break The Line...——http://localhost:5324/Admin —— 执行处理程序“System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper”的子请求时出错。 

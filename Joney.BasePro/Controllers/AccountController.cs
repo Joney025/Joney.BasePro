@@ -30,6 +30,10 @@ namespace Joney.BasePro.Controllers
                 return RedirectToAction("Index","Home");
             }
             ViewBag.ReturnUrl = returnUrl;
+            System.Web.HttpContext.Current.Session.Abandon();
+            System.Web.HttpContext.Current.Session.Clear();//清空Session
+            System.Web.HttpContext.Current.Request.Cookies.Clear();
+            FormsAuthentication.SignOut();
             return View();
         }
 
@@ -149,8 +153,17 @@ namespace Joney.BasePro.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            System.Web.HttpContext.Current.Session.Abandon();
+            System.Web.HttpContext.Current.Session.Clear();//清空Session
+            System.Web.HttpContext.Current.Request.Cookies.Clear();
             FormsAuthentication.SignOut();
             return Redirect(FormsAuthentication.LoginUrl);//Login("");//RedirectToAction("Index","Home");
+        }
+
+        public ActionResult Error(string Content)
+        {
+            ViewBag.Error = Server.UrlDecode(Content);
+            return View("Error");
         }
     }
 }

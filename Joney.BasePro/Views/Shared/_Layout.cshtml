@@ -8,8 +8,8 @@
     <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.js"></script>
-    
+
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script language="javascript">
 
         $(function () {
@@ -62,7 +62,7 @@
                 <div style="text-align:center;margin:0; font:normal 14px/20px 'MicroSoft YaHei';height:30px;line-height:30px;">
                     <span style="width:300px;"><a href="#" target="_blank">深圳J软件公司</a><a href="#" target="_blank">（JSoft）</a></span>
                     <span>|</span>
-                    <span style="color:#c0c0c0;">Copyright &copy;2013-@DateTime.Now.Year All Rights Reserved.</span>
+                    <span style="color:#c0c0c0;">Copyright &copy;2013-@DateTime.Now.Year By <a href="@Url.Action("Index","Admin")">Joney</a> All Rights Reserved.</span>
                 </div>
             </div>
         </footer>

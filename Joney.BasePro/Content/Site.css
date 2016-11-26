@@ -44,7 +44,8 @@ blockquote, q {
 .main{
     width:100%;
     height:100%;
-    background:url('../Images/body_bg.jpg')repeat;
+    background-image:url('../Images/body_bg.jpg');
+    background-attachment:fixed;
 }
 .container{
     top: 50px;
@@ -184,4 +185,12 @@ nav a{
     vertical-align: middle;
     margin: 0;
     padding: 7px;
+}
+footer{
+    background: #4c4343;
+    z-index: 99999999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

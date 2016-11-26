@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestPage_1</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.pjax.js"></script>
+</head>
+<body style="background:url('http://pic44.nipic.com/20140721/11624852_001107119409_2.jpg');">
+    <div>
+        <p>Test Page.1</p>
+        <a href="~/Manage/TestPage_0">P0</a>
+        <a href="~/Manage/TestPage_2">P2</a>
+        <div id="pjax-container"></div>
+        <div>
+            <img src="http://hbsnj.keliren.cn/tuku/a/20161104/581c05ccca265.jpg" />
+        </div>
+    </div>
+    <script>
+        $(document).pjax("a", "#pjax-container");
+    </script>
+</body>
+</html>

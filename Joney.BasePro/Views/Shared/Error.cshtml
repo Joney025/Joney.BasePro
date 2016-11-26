@@ -1,12 +1,19 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
-
 @{
+    Layout = null;
     ViewBag.Title = "错误";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
 
-<style type="text/css">
+    <style type="text/css">
      .error-box{
-         background:url('@Url.Content("../Images/404.jpg")')no-repeat;
+         background:url('@Url.Content("~/Images/404.jpg")')no-repeat scroll 0 0 #fff;
          margin:0 auto;
          padding:0;
          width:550px;
@@ -15,12 +22,34 @@
      }
     .error-msg{
         position:relative;
-        top:300px;
+        top:18%;
         left:30px;
         text-align:center;
     }
-</style>
-<script type="text/javascript" language="javascript">
+    .btn-bar{
+        margin:0;padding:0;
+    }
+    .btn-bar a{
+           margin: 0;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    color: #696262;
+    border-radius: 3px;
+    }
+        .btn-bar a:hover{
+        border:1px solid red !important;
+    }
+        .error-info{
+        /*background: #79726b;*/
+        position: absolute;
+        color: #fff;
+        padding: 5px;
+        bottom: 0;
+        margin: 0 auto;
+        width: 100%;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
         var i =5;
         var intervalid;
         intervalid = setInterval("fun()", 1000);
@@ -41,20 +70,40 @@
             } else {
                 window.history.go(-1);
             }
+
+            //if (window != top) {
+            //    top.location.href = location.href;
+            //}
+            //var win = window;
+            //while (win != win.parent) {
+            //    win = win.parent;
+            //}
+            //return win;
     }
     function stopClose() {
         window.clearInterval(intervalid);
     }
-</script>
-<div class="error-box">
-    <div class="error-msg">
-        <h1 class="text-danger" style="color:red;font-size:15px;">抱歉，您访问的页面地址有误，</h1>
-        <h2 class="text-danger" style="color:red;font-size:20px;">或者该页面不存在。</h2>
-        <p style="text-align:center;">将在 <span id="mes" style="color:red;">5</span> 秒之后页面自动跳转上层页面！</p>
-        <p style="text-align:center;">
-            <a id="stop" style="text-decoration:none;cursor:pointer;" onclick="stopClose();">[停留？]</a>
-            <a id="back" style="text-decoration:none;cursor:pointer;" onclick="goback();">[返回？]</a>
-        </p>
+
+    </script>
+</head>
+<body>
+    <div class="error-box">
+        <div class="error-msg">
+            <h2 class="text-danger" style="color:red;font-size:18px;">抱歉，您访问的页面地址有误</h2>
+            <h2 class="text-danger" style="color:red;font-size:18px;">或者该页面不存在。</h2>
+            <p style="text-align:center;">将在 <span id="mes" style="color:red;">5</span> 秒之后页面自动跳转上一页面！</p>
+            <p class="btn-bar" style="text-align:center;">
+                <a id="stop" style="text-decoration:none;cursor:pointer;" onclick="stopClose();">稍等</a>
+                <a id="back" style="text-decoration:none;cursor:pointer;" onclick="goback();">返回</a>
+            </p>
+        </div>
+        <div>
+            <pre class="error-info">@ViewBag.Error</pre>
+        </div>
     </div>
-</div>
+</body>
+</html>
+
+
+
 

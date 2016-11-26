@@ -16,6 +16,21 @@ namespace Joney.BasePro.Controllers
             return View();
         }
 
+        public ActionResult TestPage_0()
+        {
+            return View();
+        }
+
+        public ActionResult TestPage_1()
+        {
+            return View();
+        }
+
+        public ActionResult TestPage_2()
+        {
+            return View();
+        }
+
         public ActionResult FlowWork()
         {
             dynamic my = Request.QueryString["xx"];

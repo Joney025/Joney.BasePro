@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestPage_0</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.pjax.js"></script>
+</head>
+<body style="background:url('http://img01.taopic.com/151227/234973-15122G5550795.jpg');">
+    <div> 
+        <p>Test Page.0</p>
+        <a href="~/Manage/TestPage_1">P1</a>
+        <a href="~/Manage/TestPage_2">P2</a>
+        <div id="page_container"></div>
+        <div>
+            <img src="http://pic44.nipic.com/20140717/12432466_121957328000_2.jpg"/>
+        </div>
+        <div class="pjax_loading">waiting...</div>
+    </div>
+    <script>
+        //$(document).pjax("a", "#page_container");
+        $(document).pjax('a[target!=_blank]', '#page_container', { fragment: '#page_container', timeout: 8000 });
+        $(document).on('pjax:send', function () { //pjax链接点击后显示加载动画；
+            $(".pjax_loading").css("display", "block");
+        });
+        $(document).on('pjax:complete', function () { //pjax链接加载完成后隐藏加载动画；
+            $(".pjax_loading").css("display", "none");
+            pajx_loadDuodsuo();
+        });
+        function pajx_loadDuodsuo() {
+            var dus = $(".ds-thread");
+            if ($(dus).length == 1) {
+                var el = document.createElement('div');
+                el.setAttribute('data-thread-key', $(dus).attr("data-thread-key"));//必选参数
+                el.setAttribute('data-url', $(dus).attr("data-url"));
+                DUOSHUO.EmbedThread(el);
+                $(dus).html(el);
+            }
+        }
+    </script>
+</body>
+</html>

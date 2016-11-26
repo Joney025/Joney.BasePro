@@ -303,6 +303,7 @@
     <Content Include="Content\FlowDesign\myflow.editors.js" />
     <Content Include="Content\FlowDesign\myflow.jpdl4.js" />
     <Content Include="Content\FlowDesign\myflow.js" />
+    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font.css" />
     <Content Include="Content\fullcalendar\fullcalendar.css" />
     <Content Include="Content\fullcalendar\fullcalendar.js" />
@@ -378,6 +379,7 @@
     <Content Include="Content\fullcalendar\lib\jquery-ui.custom.min.js" />
     <Content Include="Content\fullcalendar\lib\jquery.min.js" />
     <Content Include="Content\fullcalendar\lib\moment.min.js" />
+    <Content Include="Content\icon-font.min.css" />
     <Content Include="Content\index.css" />
     <Content Include="Content\jqGrid\css\ui.jqgrid-bootstrap-ui.css" />
     <Content Include="Content\jqGrid\css\ui.jqgrid-bootstrap.css" />
@@ -515,6 +517,7 @@
     <Content Include="Content\plyr\plyr.js" />
     <Content Include="Content\plyr\sprite.svg" />
     <Content Include="Content\SignalR.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\uploadify\jquery.uploadify.js" />
     <Content Include="Content\uploadify\jquery.uploadify.min.js" />
     <Content Include="Content\uploadify\uploadify-cancel.png" />
@@ -902,6 +905,8 @@
     <Content Include="Scripts\jquery.flexisel.js" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.nicescroll.js" />
+    <Content Include="Scripts\jquery.pjax.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="Scripts\jquery.touchSwipe.min.js" />
@@ -950,11 +955,17 @@
     <Content Include="Views\Shared\_JSBlock.cshtml" />
     <Content Include="Views\Shared\_Layer.cshtml" />
     <Content Include="Views\Home\FlowChartDesign.cshtml" />
+    <Content Include="Views\Admin\AdminIndex.cshtml" />
+    <Content Include="Views\Admin\_PartialPage_Main.cshtml" />
+    <Content Include="Views\Admin\UserManage.cshtml" />
+    <Content Include="Views\Admin\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Manage\TestPage_1.cshtml" />
+    <Content Include="Views\Manage\TestPage_2.cshtml" />
+    <Content Include="Views\Manage\TestPage_0.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Manage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
